@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_05_104411) do
+ActiveRecord::Schema.define(version: 2021_07_05_131121) do
+
+  create_table "follow_requests", force: :cascade do |t|
+    t.integer "learner_id"
+    t.integer "observer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.integer "learner_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "learners", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,6 +37,33 @@ ActiveRecord::Schema.define(version: 2021_07_05_104411) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_learners_on_email", unique: true
     t.index ["reset_password_token"], name: "index_learners_on_reset_password_token", unique: true
+  end
+
+  create_table "observer_follows", force: :cascade do |t|
+    t.integer "learner_id"
+    t.integer "observer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.integer "test_id"
+    t.text "name"
+    t.integer "score"
+    t.integer "perfect"
+    t.integer "average"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.integer "learner_id"
+    t.text "name"
+    t.text "pros"
+    t.text "cons"
+    t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

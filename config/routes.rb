@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   # devise_for :learners
-
   devise_for :learners, :controllers => {
     :registrations => 'learners/registrations',
     :sessions => 'learners/sessions'

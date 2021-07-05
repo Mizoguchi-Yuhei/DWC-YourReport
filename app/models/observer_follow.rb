@@ -1,0 +1,2 @@
+class ObserverFollow < ApplicationRecord
+end
