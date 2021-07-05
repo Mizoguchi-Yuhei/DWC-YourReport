@@ -71,14 +71,13 @@ gem 'font-awesome-sass'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
-gem 'devise'
-
 # チャート表示
 gem 'chart-js-rails'
 
 # フォーム追加
 gem 'cocoon'
 
+gem 'devise'
 # Devise 日本語化
 gem 'devise-i18n'
 gem 'devise-i18n-views'
