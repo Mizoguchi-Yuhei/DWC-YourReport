@@ -7,7 +7,12 @@ class Learner::TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
-    @test.save
+    if @test.save(test_params)
+      redirect_to learner_mypage_path(current_learner)
+    else
+      flash[:alert] = "失敗しました。"
+      redirect_to request.referer
+    end
   end
 
   def show
