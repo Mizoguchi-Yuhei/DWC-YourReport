@@ -12,11 +12,15 @@
             <ul>
               <li><%= goal.body %></li>
             </ul>
+            <div>
+              <%= link_to "編集", edit_learner_goal(goal), class: "btn btn-primary" %>
+              <%= link_to "削除", learner_goal(goal), method: :delete,  data: { confirm: '消去しますか?' }, class: "btn btn-danger" %>
+            </div>
           <% end %>
         <% else %>
           <h4>まだ目標は設定していません。</h4>
           <div>
-
+            <%= link_to "投稿する", new_learner_goal_path(@learner), class: "btn btn-outline-primary" %>
           </div>
         <% end %>
       </div>
@@ -28,13 +32,18 @@
         <% if @tests.present? %>
           <%= @tests.each do |t| %>
             <ul>
-              <li>t.name</li>
+              <li>
+                <%= link_to t.name, learner_test(t.id) %>
+                </li>
             </ul>
           <% end %>
+          <div>
+            <%= link_to "投稿する", new_learner_test(@learner), class: "btn btn-outline-primary" %>
+          </div>
         <% else %>
           <h4>まだ投稿されていません。</h4>
           <div>
-
+            <%= link_to "投稿する", new_learner_test(@learner), class: "btn btn-outline-primary" %>
           </div>
         <% end %>
       </div>
