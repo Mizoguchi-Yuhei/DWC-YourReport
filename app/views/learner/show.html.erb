@@ -1,9 +1,13 @@
 <div class="container">
-  <div class="row">
-    <div>
+  <div class="row mt-3 mx-auto">
+    <div class="col-md-3">
+      フォロワー
+    </div>
+
+    <div class="col-md-5">
       <h3>次の定期テストの目標</h3>
       <div>
-        <% if @goals %>
+        <% if @goals.present? %>
           <%= @goals.each do |goal| %>
             <ul>
               <li><%= goal.body %></li>
@@ -11,14 +15,17 @@
           <% end %>
         <% else %>
           <h4>まだ目標は設定していません。</h4>
+          <div>
+
+          </div>
         <% end %>
       </div>
     </div>
 
-    <div>
+    <div class="col-md-4">
       <h3>過去の定期テスト一覧</h3>
       <div>
-        <% if @tests %>
+        <% if @tests.present? %>
           <%= @tests.each do |t| %>
             <ul>
               <li>t.name</li>
@@ -26,6 +33,9 @@
           <% end %>
         <% else %>
           <h4>まだ投稿されていません。</h4>
+          <div>
+
+          </div>
         <% end %>
       </div>
     </div>
