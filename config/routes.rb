@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'learner/show'
   get 'home/index'
   root to: "home#index"
 
@@ -13,6 +14,19 @@ Rails.application.routes.draw do
     get "sign_in", :to => "learners/sessions#new"
     post "sign_in", :to => "learners/sessions#create"
     get "sign_out", :to => "learners/sessions#destroy"
+  end
+
+  # 学習者側フォロー関係
+  resources :learners, only: [:show, :edit, :update] do
+    resources :observer_follows, only: [:destroy, :show, :index]
+    post "/follow_requests/:id" => "follow_requests#allow"
+    resources :follow_requests, only: [:index, :show, :destroy]
+  end
+
+  namespace :learner do
+    get "/mypage" => "learner#show"
+    resources :tests
+    resources :goals
   end
 
 
