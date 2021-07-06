@@ -1,4 +1,4 @@
-class GoalsController < ApplicationController
+class Learner::GoalsController < ApplicationController
   def new
     @goal = Goal.new
   end

@@ -1,2 +1,33 @@
-<h1>Learner#show</h1>
-<p>Find me in app/views/learner/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div>
+      <h3>次の定期テストの目標</h3>
+      <div>
+        <% if @goals %>
+          <%= @goals.each do |goal| %>
+            <ul>
+              <li><%= goal.body %></li>
+            </ul>
+          <% end %>
+        <% else %>
+          <h4>まだ目標は設定していません。</h4>
+        <% end %>
+      </div>
+    </div>
+
+    <div>
+      <h3>過去の定期テスト一覧</h3>
+      <div>
+        <% if @tests %>
+          <%= @tests.each do |t| %>
+            <ul>
+              <li>t.name</li>
+            </ul>
+          <% end %>
+        <% else %>
+          <h4>まだ投稿されていません。</h4>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

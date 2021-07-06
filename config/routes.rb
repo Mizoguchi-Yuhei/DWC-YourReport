@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  get 'learner/show'
   get 'home/index'
   root to: "home#index"
 
+  namespace :learner do
+    get "/mypage" => "learner#show"
+    resources :tests
+    resources :goals
+  end
 # 学習者ログイン
   # devise_for :learners
   devise_for :learners, :controllers => {
@@ -22,13 +26,6 @@ Rails.application.routes.draw do
     post "/follow_requests/:id" => "follow_requests#allow"
     resources :follow_requests, only: [:index, :show, :destroy]
   end
-
-  namespace :learner do
-    get "/mypage" => "learner#show"
-    resources :tests
-    resources :goals
-  end
-
 
 # 保護者ログイン
   devise_for :observers
