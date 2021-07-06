@@ -1,6 +1,6 @@
 class Learner::TestsController < ApplicationController
   def new
-    @learner = Learner.find(params[:learner_id])
+    @learner = current_learner
     @test = Test.new
     @subjects = @test.subjects.build
   end
@@ -25,7 +25,7 @@ class Learner::TestsController < ApplicationController
   private
 
   def test_params
-    params.require(:test).permit(:name, subjects_attributes: [:id, :name, :_destroy])
+    params.require(:test).permit(:name, subjects_attributes: [:test_id, :name, :score, :perfect, :average, :_destroy])
   end
 
 end
