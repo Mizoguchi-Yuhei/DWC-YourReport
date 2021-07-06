@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="col-md-10 mx-auto mt-3">
+    <%= form_with model: [@learner, @test], local: true do |t| %>
+      <%= t.label "テスト名" %>
+      <%= t.text_field :name %>
+      <p>例）中学3年2学期中間テスト</p>
+      <div class="tests">
+        <%= t.fields_for :subjects do |u| %>
+          <%= render "subject_fields", f: u %>
+        <% end %>
+        <div class="links mx-auto">
+          <%= link_to_add_association "科目を追加", t, :subjects %>
+        </div>
+      </div>
+      <div class="actions">
+        <%= t.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>
