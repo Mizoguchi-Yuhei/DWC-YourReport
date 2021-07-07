@@ -1,7 +1,8 @@
 <div class="container">
-	<div class="row">
-		<table>
-			<thead>
+	<div class="row mt-3 col-md-8 mx-auto">
+		<h4><%= @test.name %></h4>
+		<table class="table table-bordered table-hover align-middle mt-3">
+			<thead class="table-light">
 				<tr>
 					<th>
 						科目名
@@ -11,6 +12,9 @@
 					</th>
 					<th>
 						満点
+					</th>
+					<th>
+						得点率
 					</th>
 					<th>
 						平均点
@@ -24,17 +28,50 @@
 							<%= s.name %>
 						</td>
 						<td>
-							<%= s.score %>
+							<%= s.score %> 点
 						</td>
 						<td>
-							<%= s.perfect %>
+							<%= s.perfect %> 点
 						</td>
 						<td>
-							<%= s.average %>
+							<%= (s.score.to_f / s.perfect.to_f) * 100 %>%
+						</td>
+						<td>
+							<%= s.average %> 点
 						</td>
 					</tr>
 				</tbody>
 			<% end %>
 		</table>
+
+		<canvas id="myChart"></canvas>
+		<script>
+			var ctx = document.getElementById("myChart");
+			var myChart = new Chart(ctx, {
+				type: 'bar',	 //グラフのタイプ
+				data: {
+					labels: ["得点", "満点", "平均点"],
+					datasets:
+					[
+						<% @subjects.each do |s| %>
+							{
+							label: '<%= s.name %>',
+							backgroundColor: 'rgba(122,255,129,0.2)',
+							borderColor: 'rgba(122,255,129,0.2)',
+							data: [<%= s.score %>, <%= s.perfect %>, <%= s.average %>]
+							},
+						<% end %>
+					]
+				},
+				options: {
+					scale: {
+						ticks: {
+							suggestedMin: 0,
+							suggestedMax: 200
+						}
+					}
+				}
+			});
+		</script>
 	</div>
 </div>

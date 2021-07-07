@@ -30,7 +30,6 @@ class Learner::TestsController < ApplicationController
   end
 
   private
-
   def test_params
     params.require(:test).permit(:learner_id, :name, :image, :pros, :cons, subjects_attributes: [:test_id, :name, :score, :perfect, :average, :_destroy])
   end
