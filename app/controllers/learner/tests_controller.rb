@@ -17,6 +17,7 @@ class Learner::TestsController < ApplicationController
 
   def show
     @test = Test.find_by(params[:id], learner_id: current_learner.id)
+    @subjects = Subject.where(test_id: @test.id)
   end
 
   def edit

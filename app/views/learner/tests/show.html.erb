@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+		<table>
+			<thead>
+				<tr>
+					<th>
+						科目名
+					</th>
+					<th>
+						得点
+					</th>
+					<th>
+						満点
+					</th>
+					<th>
+						平均点
+					</th>
+				</tr>
+			</thead>
+			<% @subjects.each do |s| %>
+				<tbody>
+					<tr>
+						<td>
+							<%= s.name %>
+						</td>
+						<td>
+							<%= s.score %>
+						</td>
+						<td>
+							<%= s.perfect %>
+						</td>
+						<td>
+							<%= s.average %>
+						</td>
+					</tr>
+				</tbody>
+			<% end %>
+		</table>
+	</div>
+</div>
