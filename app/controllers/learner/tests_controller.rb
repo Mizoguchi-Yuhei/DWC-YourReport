@@ -2,7 +2,7 @@ class Learner::TestsController < ApplicationController
   def new
     @learner = current_learner
     @test = Test.new
-    @subjects = @test.subjects.build
+    @test.subjects.build
   end
 
   def create
@@ -16,6 +16,7 @@ class Learner::TestsController < ApplicationController
   end
 
   def show
+    @test = Test.find_by(params[:id], learner_id: current_learner.id)
   end
 
   def edit
@@ -30,7 +31,7 @@ class Learner::TestsController < ApplicationController
   private
 
   def test_params
-    params.require(:test).permit(:name, subjects_attributes: [:test_id, :name, :score, :perfect, :average, :_destroy])
+    params.require(:test).permit(:learner_id, :name, :image, :pros, :cons, subjects_attributes: [:test_id, :name, :score, :perfect, :average, :_destroy])
   end
 
 end
