@@ -2,7 +2,10 @@
   <div>
     <h3>目標編集画面</h3>
     <div>
-
+      <%= form_with model: [@learner, @goal], local: true do |goal| %>
+        <%= goal.text_area :body %>
+        <%= goal.submit "更新する" %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 
-<%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+<%= form_with model: @learner, url: learner_registration_path, id: 'new_learner', class: 'new_learner', local: true do |f| %>
   <%= render "learners/shared/error_messages", resource: resource %>
 
   <div class="field">

@@ -1,3 +1,3 @@
 class Subject < ApplicationRecord
-  belongs_to :subject
+  belongs_to :test
 end

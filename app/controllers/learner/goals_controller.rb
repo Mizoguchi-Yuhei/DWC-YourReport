@@ -1,5 +1,6 @@
 class Learner::GoalsController < ApplicationController
   def new
+    @learner = current_learner
     @goal = Goal.new
   end
 
@@ -15,11 +16,12 @@ class Learner::GoalsController < ApplicationController
   end
 
   def edit
+    @learner = current_learner
     @goal = Goal.find(params[:id])
   end
 
   def update
-    @goal = Goal.find(params[:id])
+    @goal = Goal.find_by(params[:id], learner_id = current_learner.id)
     if @goal.update(goal_params)
       redirect_to learner_mypage_path
     else
