@@ -11,7 +11,7 @@
         <% if @goals.present? %>
           <% @goals.each do |goal| %>
             <ul>
-              <li class="my-auto">
+              <li class="my-auto fs-5">
                 <%= goal.body %>
                 <div class="d-inline-block">
                   <%= link_to "編集", edit_learner_goal_path(goal), class: "btn btn-outline-success" %>
