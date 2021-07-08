@@ -50,7 +50,7 @@
 			var myChart = new Chart(ctx, {
 				type: 'bar',	 //グラフのタイプ
 				data: {
-					labels: ["得点", "満点", "平均点"],
+					labels: ["得点", "満点", "平均点"],	// グラフのラベル
 					datasets:
 					[
 						<% @subjects.each do |s| %>
