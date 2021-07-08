@@ -16,7 +16,13 @@ class Learner::TestsController < ApplicationController
   end
 
   def show
-    @test = Test.find_by(params[:id], learner_id: current_learner.id)
+    @test = Test.find_by(id: params[:id], learner_id: current_learner.id)
+    @subjects = Subject.where(test_id: params[:id])
+    gon.name_list = @subjects.pluck(:name)
+    gon.score_list = @subjects.pluck(:score)
+    gon.average_list = @subjects.pluck(:average)
+    # 満点
+    # gon.perfect_list = @subjects.pluck(:perfect)
   end
 
   def edit
@@ -29,7 +35,6 @@ class Learner::TestsController < ApplicationController
   end
 
   private
-
   def test_params
     params.require(:test).permit(:learner_id, :name, :image, :pros, :cons, subjects_attributes: [:test_id, :name, :score, :perfect, :average, :_destroy])
   end

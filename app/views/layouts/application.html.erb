@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
+    <%= include_gon %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -20,15 +21,15 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav ml-auto">
-                <li>
+              <ul class="navbar-nav">
+                <li class="text-end">
                   <%= link_to learner_mypage_path(current_learner) do %>
-                  <i class="fas fa-home nav-link text-light"> トップページ</i>
+                    <i class="fas fa-home nav-link text-light"> トップページ</i>
                   <% end %>
                 </li>
-                <li>
+                <li class="text-end">
                   <%= link_to destroy_learner_session_path, method: :delete do %>
-                  <i class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" > ログアウト</i>
+                    <i class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" > ログアウト</i>
                   <% end %>
                 </li>
               </ul>
@@ -43,15 +44,15 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav ml-auto">
-                <li>
+              <ul class="navbar-nav">
+                <li class="text-end">
                   <%= link_to learner_mypage_path(current_learner) do %>
-                  <i class="fas fa-home nav-link text-light"> トップページ</i>
+                    <i class="fas fa-home nav-link text-light"> トップページ</i>
                   <% end %>
                 </li>
-                <li>
+                <li class="text-end">
                   <%= link_to destroy_learner_session_path, method: :delete do %>
-                  <i class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" > ログアウト</i>
+                    <i class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" > ログアウト</i>
                   <% end %>
                 </li>
               </ul>

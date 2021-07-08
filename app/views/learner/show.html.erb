@@ -1,17 +1,30 @@
 <div class="container">
   <div class="row mt-3 mx-auto">
-    <div class="col-md-3">
+    <% if learner_signed_in? %>
+      <% if @learner.name.present? %>
+        <h4>こんにちは、<%= @learner.name %>さん！</h4>
+      <% else %>
+        <h4>こんにちは！</h4>
+      <% end %>
+    <% elsif observer_signed_in? %>
+      <% if @observer.name.present? %>
+      <h4>こんにちは、<%= @observer.name %>さん！</h4>
+      <% else %>
+        <h4>こんにちは！</h4>
+      <% end %>
+    <% end %>
+    <div class="col-md-2 col-lg-2">
       フォロワー
       <!--ifでフォロワーがいる、いない-->
     </div>
 
-    <div class="col-md-5">
+    <div class="col-md-6 col-lg-6">
       <h3>次の定期テストの目標</h3>
       <div>
         <% if @goals.present? %>
           <% @goals.each do |goal| %>
             <ul>
-              <li class="my-auto">
+              <li class="my-auto fs-5">
                 <%= goal.body %>
                 <div class="d-inline-block">
                   <%= link_to "編集", edit_learner_goal_path(goal), class: "btn btn-outline-success" %>
@@ -32,7 +45,7 @@
       </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-4 col-lg-4">
       <h3>過去の定期テスト一覧</h3>
       <div>
         <% if @tests.present? %>
