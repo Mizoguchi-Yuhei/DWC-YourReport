@@ -2,7 +2,8 @@
 	<div class="col-lg-10 mx-auto mt-3">
 		<div>
 			<%= form_with url: observer_search_path, method: :get, local: true do |f| %>
-				<%= f.text_field "search[value]" %>
+				<%= f.label "学習者名" %>
+				<%= f.text_field :keyword %>
 				<%= f.submit "検索" %>
 			<% end %>
 			<table>
