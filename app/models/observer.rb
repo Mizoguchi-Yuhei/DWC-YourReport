@@ -7,4 +7,8 @@ class Observer < ApplicationRecord
   def already_follow_requested?(learner)
     self.follow_requests.exists?(learner_id: learner.id)
   end
+  
+  def already_followed?
+    self.observer_follows.exists?(learner_id: learner.id)
+  end
 end
