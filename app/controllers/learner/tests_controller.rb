@@ -16,8 +16,11 @@ class Learner::TestsController < ApplicationController
   end
 
   def show
-    @test = Test.find_by(params[:id], learner_id: current_learner.id)
-    @subjects = Subject.where(test_id: @test.id)
+    @test = Test.find_by(id: params[:id], learner_id: current_learner.id)
+    @subjects = Subject.where(test_id: params[:id])
+    # @subjects.each do |subject|
+    #   gon.subject = subject
+    # end
   end
 
   def edit
