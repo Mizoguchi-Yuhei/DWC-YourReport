@@ -1,2 +1,11 @@
-<h1>Observer::Observer#show</h1>
-<p>Find me in app/views/observer/observer/show.html.erb</p>
+<div class="container">
+	<div>
+  <% if observer_signed_in? %>
+    <% if @observer.name.present? %>
+    <h4>こんにちは、<%= @observer.name %>さん！</h4>
+    <% else %>
+      <h4>こんにちは！</h4>
+    <% end %>
+	<% end %>
+	</div>
+</div>

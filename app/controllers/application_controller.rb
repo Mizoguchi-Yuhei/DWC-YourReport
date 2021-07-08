@@ -3,7 +3,12 @@ class ApplicationController < ActionController::Base
 
   # ログイン後のリダイレクト先
   def after_sign_in_path_for(resource)
-    learner_mypage_path
+    case  resource
+    when Learner
+      learner_mypage_path
+    when Observer
+      observer_mypage_path
+    end
   end
 
   # ログアウト後のリダイレクト先

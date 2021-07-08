@@ -6,12 +6,6 @@
       <% else %>
         <h4>こんにちは！</h4>
       <% end %>
-    <% elsif observer_signed_in? %>
-      <% if @observer.name.present? %>
-      <h4>こんにちは、<%= @observer.name %>さん！</h4>
-      <% else %>
-        <h4>こんにちは！</h4>
-      <% end %>
     <% end %>
     <div class="col-md-2 col-lg-2">
       フォロワー
