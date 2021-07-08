@@ -1,2 +1,0 @@
-class FollowRequestsController < ApplicationController
-end

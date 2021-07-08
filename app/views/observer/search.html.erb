@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="col-lg-10 mx-auto mt-3">
+		<div>
+			<%= form_with url: observer_search_path, method: :get, local: true do |f| %>
+				<%= f.label "学習者名" %>
+				<%= f.text_field :keyword %>
+				<%= f.submit "検索" %>
+			<% end %>
+			<table>
+				<thead>
+					<tr>
+						<th>名前</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @learners.each do |learner| %>
+						<tr>
+							<td>
+								<%= learner.name %>
+							</td>
+							<td>
+								<% if current_observer.already_follow_requested?(learner) %>
+									<%= link_to "フォローリクエストを取り消す", observer_learner_follow_requests_path(learner_id: learner.id), method: :delete %>
+								<% elsif current_observer.already_followed?(learner) %>
+									<p>
+										すでにフォロー済みです
+									</p>
+								<% else %>
+									<%= link_to "フォローリクエストを送る", observer_learner_follow_requests_path(learner_id: learner.id), method: :post %>
+								<% end %>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

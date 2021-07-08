@@ -1,2 +1,0 @@
-class ObserverFollowsController < ApplicationController
-end
