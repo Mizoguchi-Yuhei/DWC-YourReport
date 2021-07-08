@@ -50,36 +50,40 @@
 			var ctx = document.getElementById("myChart");
 			var myChart = new Chart(ctx, {
 				type: 'radar',	 //グラフのタイプ
-				<% @subjects.each do |subject| %>
 					data: {
-						labels: ["<%= subject.name %>"],	// グラフのラベル
+						labels: gon.name_list,	// グラフのラベル
 						datasets:
 						[
 							{
 							label: "得点",
-							backgroundColor: "rgba(249, 0, 4, 0.55)",
-							borderColor: "rgba(255, 30, 34, 0.7)",
-							data: [<%= subject.score %>]
-							},
-							{
-							label: "満点",
-							backgroundColor: "rgba(85, 89, 159, 0.2)",
-							borderColor: "rgba(85, 89, 159, 0.4)",
-							data: [<%= subject.perfect %>]
+							backgroundColor: "rgba(255, 5, 9, 0.2)",
+							borderColor: "rgb(255, 5, 9)",
+							pointBackgroundColor: "rgb(255, 5, 9)",
+							hitRadius: 7,
+							borderWidth: 2,
+							data: gon.score_list
 							},
 							{
 							label: "平均点",
-							backgroundColor: 'rgba(0, 224, 52, 0.5)',
-							borderColor: 'rgba(0, 224, 52, 0.7)',
-							data: [<%= subject.average %>]
+							backgroundColor: "rgba(80, 255, 5, 0.2)",
+							borderColor: "rgb(29, 224, 0)",
+							pointBackgroundColor: "rgb(29, 224, 0)",
+							hitRadius: 7,
+							borderWidth: 2,
+							data: gon.average_list
 							}
 						]
 					},
-				<% end %>
 				options: {
+					tooltips: {
+						enabled: false
+						// mode: 'index'
+					},
 					scale: {
+						display: true,
 						ticks: {
-							suggestedMin: 0,
+							beginAtZero: true,
+							min: 0,
 							fontColor: "lightgrey"
 						}
 					}

@@ -18,9 +18,11 @@ class Learner::TestsController < ApplicationController
   def show
     @test = Test.find_by(id: params[:id], learner_id: current_learner.id)
     @subjects = Subject.where(test_id: params[:id])
-    # @subjects.map do |subject|
-    #   @subject = subject
-    # end
+    gon.name_list = @subjects.pluck(:name)
+    gon.score_list = @subjects.pluck(:score)
+    gon.average_list = @subjects.pluck(:average)
+    # 満点
+    # gon.perfect_list = @subjects.pluck(:perfect)
   end
 
   def edit
