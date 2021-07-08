@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'home/index'
   root to: "home#index"
 
+
   get "/learner/mypage" => "learner#show"
   namespace :learner do
     resources :tests
@@ -40,6 +41,7 @@ Rails.application.routes.draw do
   end
 
   get "/observer/mypage" => "observer#show"
+  get "/observer/search" => "observer#search"
   namespace :observer do
     resources :learners, only: [:show] do
       resource :follow_requests, only: [:create, :destroy]
