@@ -73,7 +73,6 @@ gem "refile-mini_magick"
 
 # チャート表示
 gem 'chart-js-rails'
-gem 'gon'
 
 # フォーム追加
 gem 'cocoon'

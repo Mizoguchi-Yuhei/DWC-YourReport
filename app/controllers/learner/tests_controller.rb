@@ -18,8 +18,8 @@ class Learner::TestsController < ApplicationController
   def show
     @test = Test.find_by(id: params[:id], learner_id: current_learner.id)
     @subjects = Subject.where(test_id: params[:id])
-    # @subjects.each do |subject|
-    #   gon.subject = subject
+    # @subjects.map do |subject|
+    #   @subject = subject
     # end
   end
 
