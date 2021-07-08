@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :learner do
+    get 'follow_requests/index'
+  end
+  namespace :observer do
+    get 'observer/show'
+  end
   get 'home/index'
   root to: "home#index"
 
@@ -30,6 +36,7 @@ Rails.application.routes.draw do
 # 保護者ログイン
   devise_for :observers
 
+  get "/observer/mypage" => "observer#show"
   namespace :observer do
     resources :learners, only: [:show] do
       resource :follow_requests, only: [:create, :destroy]

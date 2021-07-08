@@ -1,0 +1,20 @@
+<div class="container">
+	<div>
+		<table>
+			<thead>
+				<th>名前</th>
+				<th></th>
+			</thead>
+			<% @requests.each do |request| %>
+				<tbody>
+					<td>request.observer.name</td>
+					<td>
+						<%= link_to "フォロー承認", learner_observer_follow_path(learner_id: current_learner.id, id: request.id), method: :post %>
+						 |
+						<%= link_to "フォロー拒否", learner_observer_follow_path(learner_id: current_learner.id, id: request.id), method: :delete %>
+					</td>
+				</tbody>
+			<% end %>
+		</table>
+	</div>
+</div>

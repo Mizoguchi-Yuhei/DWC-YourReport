@@ -1,0 +1,2 @@
+module Learner::FollowRequestsHelper
+end

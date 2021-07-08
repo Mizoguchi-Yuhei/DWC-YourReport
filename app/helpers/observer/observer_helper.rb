@@ -1,0 +1,2 @@
+module Observer::ObserverHelper
+end

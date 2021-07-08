@@ -1,0 +1,11 @@
+<div class="container">
+	<div>
+		<div>
+			<% if current_observer.already_follow_requested?(learner) %>
+				<%= link_to "フォローリクエストを取り消す", observer_learner_follow_requests_path(learner_id: learner.id), method: :delete %>
+			<% else %>
+				<%= link_to "フォローリクエストを送る", observer_learner_follow_requests_path(learner_id: learner.id), method: :post %>
+			<% end %>
+		</div>
+	</div>
+</div>
