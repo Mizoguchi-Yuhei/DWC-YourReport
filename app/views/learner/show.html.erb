@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row mt-3 mx-auto">
+  <div class="row mt-3 mx-auto offset-1 justify-content-center">
     <% if learner_signed_in? %>
       <% if @learner.name.present? %>
         <h4>こんにちは、<%= @learner.name %>さん！</h4>
@@ -7,7 +7,7 @@
         <h4>こんにちは！</h4>
       <% end %>
     <% end %>
-    <div class="col-md-2 col-lg-2">
+    <div class="col-md-3 col-lg-3">
       <div>
         <h6 class="mt-3">
           フォロワー一覧
@@ -25,11 +25,11 @@
         <% end %>
       </div>
       <% if @requests.present? %>
-        <%= render partial: "follow_requests/index" %>
+        <%= render partial: "learner/follow_requests/index" %>
       <% end %>
     </div>
 
-    <div class="col-md-6 col-lg-6">
+    <div class="mt-3 col-md-4 col-lg-4">
       <h3>次の定期テストの目標</h3>
       <div>
         <% if @goals.present? %>
@@ -56,7 +56,7 @@
       </div>
     </div>
 
-    <div class="col-md-4 col-lg-4">
+    <div class="mt-3 col-md-4 col-lg-4">
       <h3>過去の定期テスト一覧</h3>
       <div>
         <% if @tests.present? %>
