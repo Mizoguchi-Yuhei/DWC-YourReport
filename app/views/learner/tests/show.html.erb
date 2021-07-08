@@ -34,7 +34,7 @@
 							<%= s.perfect %> 点
 						</td>
 						<td>
-							<%= (s.score.to_f / s.perfect.to_f) * 100 %>%
+							<%= (s.score.to_f / s.perfect.to_f) * 100 %> %
 						</td>
 						<td>
 							<%= s.average %> 点
@@ -44,34 +44,71 @@
 			<% end %>
 		</table>
 
-		<canvas id="myChart"></canvas>
+		<canvas id="myChart">
+		</canvas>
 		<script>
 			var ctx = document.getElementById("myChart");
+			// var subject = gon.subject
 			var myChart = new Chart(ctx, {
 				type: 'bar',	 //グラフのタイプ
 				data: {
-					labels: ["得点", "満点", "平均点"],	// グラフのラベル
+					<% @subjects.each do |subject| %>
+					labels: [<%= subject.name.html_safe %>],	// グラフのラベル
 					datasets:
 					[
-						<% @subjects.each do |s| %>
-							{
-							label: '<%= s.name %>',
-							backgroundColor: 'rgba(122,255,129,0.2)',
-							borderColor: 'rgba(122,255,129,0.2)',
-							data: [<%= s.score %>, <%= s.perfect %>, <%= s.average %>]
-							},
-						<% end %>
+						{
+						label: "得点",
+						backgroundColor: "rgba(255,99,132,0.2)",
+						borderColor: "rgba(255,99,132,1)",
+						data: [<%= subject.score %>]
+						},
+						{
+						label: "満点",
+						backgroundColor: "rgba(179,181,198,0.2)",
+						borderColor: "rgba(179,181,198,1)",
+						data: [<%= subject.perfect %>]
+						},
+						{
+						label: "平均点",
+						backgroundColor: 'rgba(122,255,129,0.2)',
+						borderColor: 'rgba(122,255,129,0.2)',
+						data: [<%= subject.average %>]
+						}
+					<% end %>
 					]
 				},
 				options: {
 					scale: {
 						ticks: {
 							suggestedMin: 0,
-							suggestedMax: 200
+							suggestedMax: 200,
+							stepSize: 5
 						}
 					}
 				}
 			});
+
+
+			  type: 'radar',
+			  data: {
+			    labels: ["Japanese", "Mathematics", "English", "Social studies", "Science"],
+			    datasets: [{
+			      label: 'A_kun',
+			      backgroundColor: "rgba(0,0,80,0.4)",
+			      borderColor: "rgba(0,0,80,1)",
+			      data: [80, 90, 60, 70, 100, 70]
+			    }, {
+			      label: 'B_kun',
+			      backgroundColor: "rgba(0,255,0,0.4)",
+			      borderColor: "rgba(0,255,0,1)",
+			      data: [90, 75, 80, 65, 80, 70]
+			    }]
+			  }
+			});
 		</script>
+		<div>
+			<%= @test.pros %>
+			<%= @test.cons %>
+		</div>
 	</div>
 </div>
