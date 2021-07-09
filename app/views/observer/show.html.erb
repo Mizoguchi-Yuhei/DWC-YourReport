@@ -9,6 +9,9 @@
   	<% end %>
 	</div>
 	<div>
+		<%= link_to "登録情報編集", edit_observer_registration_path(current_observer) %>
+	</div>
+	<div>
 	  <div>
 	    <h4>フォロー一覧</h4>
 	    <% if @follows.present? %>
