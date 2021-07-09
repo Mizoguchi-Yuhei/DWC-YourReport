@@ -9,8 +9,17 @@
   	<% end %>
 	</div>
 	<div>
+		<%= link_to "登録情報編集", edit_observer_registration_path(current_observer) %>
+	</div>
+	<div>
 	  <div>
 	    <h4>フォロー一覧</h4>
+	    <% if @observer.observer_follows.present? %>
+	    	<% @observer.observer_follows.each do |follow| %>
+	    		<%= link_to follow.name, observer_learner_path %>
+	    <% else %>
+	    	フォローしている人はいません
+	    <% end %>
 	  </div>
 	  <div>
 	    <%= link_to "ここから学習者を検索", observer_search_path %>

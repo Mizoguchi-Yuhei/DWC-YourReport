@@ -1,6 +1,7 @@
 class ObserverController < ApplicationController
   def show
     @observer = current_observer
+    @followes = @observer.follow
   end
 
   def search
