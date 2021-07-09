@@ -18,7 +18,7 @@
         <% if @followers.present? %>
           <% @followers.each do |follower| %>
             <div>
-              <%= follower.name %>
+              <%= follower.observer.name %>
             </div>
           <% end %>
         <% else %>

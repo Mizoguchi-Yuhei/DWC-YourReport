@@ -16,7 +16,7 @@
 				</tr>
 				<tr>
 					<td>
-						<%= link_to "フォロー承認", learner_observer_follow_path(learner_id: current_learner.id, id: request.id), method: :post %>
+						<%= link_to "フォロー承認", learner_allow_path(learner_id: current_learner.id, id: request.id), method: :post %>
 						 |
 						<%= link_to "フォロー拒否", learner_observer_follow_path(learner_id: current_learner.id, id: request.id), method: :delete %>
 					</td>

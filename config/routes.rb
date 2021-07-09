@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :observer do
+    get 'learners/show'
+  end
   get 'home/index'
   root to: "home#index"
 
@@ -23,7 +26,7 @@ Rails.application.routes.draw do
   # 学習者側フォロー関係
   resources :learners, only: [:show, :edit, :update] do
     resources :observer_follows, only: [:destroy, :show, :index]
-    post "/follow_requests/:id" => "follow_requests#allow"
+    post "/follow_requests/:id" => "learner/follow_requests#allow", as: "allow"
     resources :follow_requests, only: [:index, :show, :destroy]
   end
 
