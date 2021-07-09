@@ -32,8 +32,7 @@ class Learner::TestsController < ApplicationController
 
   def update
     @test = Test.find_by(id: params[:id], learner_id: current_learner.id)
-    @learner = current_learner
-    if @test.update_attributes(test_params)
+    if @test.update_all(test_params)
       redirect_to learner_mypage_path
     else
       flash[:alert] = "保存に失敗しました"
@@ -42,7 +41,7 @@ class Learner::TestsController < ApplicationController
   end
 
   def destroy
-    @test = Test.find_by(id: params[:id],learner_id: current_learner.id)
+    @test = Test.find_by(id: params[:id], learner_id: current_learner.id)
     if @test.destroy
       redirect_to learner_mypage_path
     else
@@ -53,7 +52,7 @@ class Learner::TestsController < ApplicationController
 
   private
   def test_params
-    params.require(:test).permit(:learner_id, :name, :image, :pros, :cons, subjects_attributes: [:test_id, :name, :score, :perfect, :average, :_destroy])
+    params.require(:test).permit(:id, :learner_id, :name, :image, :pros, :cons, subjects_attributes: [:id, :test_id, :name, :score, :perfect, :average, :_destroy])
   end
 
 end

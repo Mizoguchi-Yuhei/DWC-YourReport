@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   get 'home/index'
   root to: "home#index"
 
-
   get "/learner/mypage" => "learner#show"
   namespace :learner do
     resources :tests

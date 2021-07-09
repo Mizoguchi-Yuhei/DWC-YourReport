@@ -62,9 +62,10 @@
         <% if @tests.present? %>
           <% @tests.each do |t| %>
             <ul>
-              <li>
+              <li class="fs-5">
                 <%= link_to t.name, learner_test_path(t.id) %>
-                </li>
+			          <%= link_to "削除", learner_test_path(t.id), method: :delete, data: {confirm: "削除しますか？"}, class: "btn-sm btn-outline-danger" %>
+              </li>
             </ul>
           <% end %>
           <div>

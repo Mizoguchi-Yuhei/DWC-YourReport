@@ -1,16 +1,16 @@
 <div class="container">
   <div class="col-md-10 mx-auto mt-3">
     <div class="mt-3">
-      <h4>編集</h4>
+      <h3>編集</h3>
     </div>
-    <div class="">
-	    <%= form_with model: [@learner, @test], local: true do |t| %>
+    <div class="mt-3">
+		  <%= form_with model: [@learner, @test], local: true do |t| %>
 	      <%= t.label "テスト名" %>
 	      <%= t.text_field :name %>
+	      <%= t.hidden_field :id, :value => @test.id %>
 	      <%= t.hidden_field :learner_id, :value => current_learner.id %>
-	      <%= t.hidden_field :id %>
 	      <p>例）中学3年2学期中間テスト</p>
-	      <div class="tests">
+	      <div class="tests mt-3">
 	        <%= t.fields_for :subjects do |u| %>
 	          <%= render "subject_fields", f: u %>
 	        <% end %>
@@ -32,8 +32,13 @@
 	      </div>
 	      <div class="actions mb-3">
 	        <%= t.submit "保存する", class: "btn btn-success" %>
+	        <%= link_to "削除する", learner_test_path(@test), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger" %>
 	      </div>
 	    <% end %>
     </div>
+
+		<div class="mb-3 d-flex justify-content-end">
+			<%= link_to "トップページへ", learner_mypage_path(@learner), class: "fa fa-reply-all" %>
+		</div>
   </div>
 </div>
