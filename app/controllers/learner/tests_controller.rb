@@ -31,9 +31,9 @@ class Learner::TestsController < ApplicationController
   end
 
   def update
-    @test = Test.find_by(id: params[:id], learner_id: current_learner.id)
-    if @test.update_all(test_params)
-      redirect_to learner_mypage_path
+    if @test.update(test_params)
+      flash[:notice] = "更新しました！"
+      redirect_to :show
     else
       flash[:alert] = "保存に失敗しました"
       redirect_to request.referer
@@ -43,6 +43,7 @@ class Learner::TestsController < ApplicationController
   def destroy
     @test = Test.find_by(id: params[:id], learner_id: current_learner.id)
     if @test.destroy
+      flash[:notice] = "削除しました！"
       redirect_to learner_mypage_path
     else
       flash[:alert] = "削除に失敗しました"
