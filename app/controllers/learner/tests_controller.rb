@@ -31,6 +31,7 @@ class Learner::TestsController < ApplicationController
   end
 
   def update
+    binding.pry
     if @test.update(test_params)
       flash[:notice] = "更新しました！"
       redirect_to :show

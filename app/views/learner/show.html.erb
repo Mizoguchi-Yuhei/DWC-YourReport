@@ -51,7 +51,7 @@
             <%= link_to "新しい目標を作る", new_learner_goal_path(@learner), class: "btn btn-outline-primary" %>
           </div>
         <% else %>
-          <h4>まだ目標は設定していません。</h4>
+          <h6>まだ目標は設定していません。</h6>
           <div>
             <%= link_to "新しい目標を作る", new_learner_goal_path(@learner), class: "btn btn-outline-primary" %>
           </div>
@@ -75,7 +75,7 @@
             <%= link_to "新しく保存する", new_learner_test_path(@learner), class: "btn btn-outline-primary" %>
           </div>
         <% else %>
-          <h4>まだ投稿されていません。</h4>
+          <h6>まだ投稿されていません。</h6>
           <div>
             <%= link_to "新しく保存する", new_learner_test_path(@learner), class: "btn btn-outline-primary" %>
           </div>
