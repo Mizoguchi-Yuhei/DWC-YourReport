@@ -11,6 +11,13 @@
 	<div>
 	  <div>
 	    <h4>フォロー一覧</h4>
+	    <% if @follows.present? %>
+	    	<% @follows.each do |follow| %>
+	    		<%= link_to follow.learner.name, observer_learner_path(follow.id) %>
+	    	<% end %>
+	    <% else %>
+	    	フォローしている人はいません
+	    <% end %>
 	  </div>
 	  <div>
 	    <%= link_to "ここから学習者を検索", observer_search_path %>
