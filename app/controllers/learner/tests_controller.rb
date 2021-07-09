@@ -26,12 +26,29 @@ class Learner::TestsController < ApplicationController
   end
 
   def edit
+    @test = Test.find_by(id: params[:id], learner_id: current_learner.id)
+    @learner = current_learner
   end
 
   def update
+    @test = Test.find_by(id: params[:id], learner_id: current_learner.id)
+    @learner = current_learner
+    if @test.update_attributes(test_params)
+      redirect_to learner_mypage_path
+    else
+      flash[:alert] = "保存に失敗しました"
+      redirect_to request.referer
+    end
   end
 
   def destroy
+    @test = Test.find_by(id: params[:id],learner_id: current_learner.id)
+    if @test.destroy
+      redirect_to learner_mypage_path
+    else
+      flash[:alert] = "削除に失敗しました"
+      redirect_to request.referer
+    end
   end
 
   private
