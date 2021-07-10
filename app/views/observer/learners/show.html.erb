@@ -4,9 +4,13 @@
 			<%= @follow.name %>
 		</h4>
 		<div>
-			<% @tests.each do |test| %>
-				<%= link_to test.name, observer_tests_show_path(test) %>
-			<% end %>
+			<ul>
+				<% @tests.each do |test| %>
+					<li>
+						<%= link_to test.name, observer_tests_show_path(test) %>
+					</li>
+				<% end %>
+			</ul>
 		</div>
 	</div>
 </div>
