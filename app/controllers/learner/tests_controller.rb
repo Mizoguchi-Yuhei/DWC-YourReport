@@ -21,8 +21,7 @@ class Learner::TestsController < ApplicationController
     gon.name_list = @subjects.pluck(:name)
     gon.score_list = @subjects.pluck(:score)
     gon.average_list = @subjects.pluck(:average)
-    # 満点
-    # gon.perfect_list = @subjects.pluck(:perfect)
+    gon.perfect_list = @subjects.pluck(:perfect)
   end
 
   def edit

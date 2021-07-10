@@ -12,17 +12,21 @@
 		<%= link_to "登録情報編集", edit_observer_registration_path(current_observer), class: "btn btn-outline-primary" %>
 	</div>
 	<div>
-	  <div>
+	  <div class="mt-3">
 	    <h4>フォロー一覧</h4>
 	    <% if @follows.present? %>
 	    	<% @follows.each do |follow| %>
-	    		<%= link_to follow.learner.name, observer_learner_path(follow.id) %>
+	    		<ul>
+	    			<li>
+	    			<%= link_to follow.learner.name, observer_learner_path(follow.id) %>さん
+	    			</li>
+	    		</ul>
 	    	<% end %>
 	    <% else %>
 	    	フォローしている人はいません
 	    <% end %>
 	  </div>
-	  <div>
+	  <div class="mt-3">
 	    <%= link_to "ここから学習者を検索", observer_search_path %>
 	  </div>
 	</div>

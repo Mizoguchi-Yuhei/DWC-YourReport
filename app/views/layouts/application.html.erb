@@ -46,12 +46,12 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav">
                 <li class="text-end">
-                  <%= link_to learner_mypage_path(current_learner) do %>
+                  <%= link_to observer_mypage_path(current_observer) do %>
                     <i class="fas fa-home nav-link text-light"> トップページ</i>
                   <% end %>
                 </li>
                 <li class="text-end">
-                  <%= link_to destroy_learner_session_path, method: :delete do %>
+                  <%= link_to destroy_observer_session_path, method: :delete do %>
                     <i class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" > ログアウト</i>
                   <% end %>
                 </li>
