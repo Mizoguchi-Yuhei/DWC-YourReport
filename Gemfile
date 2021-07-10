@@ -85,3 +85,6 @@ gem 'devise-i18n-views'
 
 # 日本語化
 gem 'rails-i18n', '~> 5.1'
+
+# ページネーション
+gem 'kaminari'

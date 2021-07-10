@@ -2,7 +2,7 @@ class Observer::LearnersController < ApplicationController
   def show
     @observer = current_observer
     @follow = Learner.find(params[:id])
-    @tests = @follow.tests
+    @tests = @follow.tests.page(params[:page]).per(2)
   end
 
   private
