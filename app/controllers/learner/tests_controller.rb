@@ -26,17 +26,36 @@ class Learner::TestsController < ApplicationController
   end
 
   def edit
+    @test = Test.find_by(id: params[:id], learner_id: current_learner.id)
+    @learner = current_learner
   end
 
   def update
+    @test = Test.find(params[:test][:id])
+    if @test.update(test_params)
+      flash[:notice] = "更新しました！"
+      @tests = current_learner.tests.all
+      redirect_to learner_mypage_path
+    else
+      flash[:alert] = "保存に失敗しました"
+      redirect_to request.referer
+    end
   end
 
   def destroy
+    @test = Test.find_by(id: params[:id], learner_id: current_learner.id)
+    if @test.destroy
+      flash[:notice] = "削除しました！"
+      redirect_to learner_mypage_path
+    else
+      flash[:alert] = "削除に失敗しました"
+      redirect_to request.referer
+    end
   end
 
   private
   def test_params
-    params.require(:test).permit(:learner_id, :name, :image, :pros, :cons, subjects_attributes: [:test_id, :name, :score, :perfect, :average, :_destroy])
+    params.require(:test).permit(:id, :learner_id, :name, :image, :pros, :cons, subjects_attributes: [:id, :test_id, :name, :score, :perfect, :average, :_destroy])
   end
 
 end

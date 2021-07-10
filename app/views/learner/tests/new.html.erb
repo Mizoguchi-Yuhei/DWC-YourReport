@@ -1,32 +1,38 @@
 <div class="container">
   <div class="col-md-10 mx-auto mt-3">
     <div class="mt-3">
-      <h4>新規保存</h4>
+      <h3>新規保存</h3>
     </div>
-    <%= form_with model: [@learner, @test], local: true do |t| %>
-      <%= t.label "テスト名" %>
-      <%= t.text_field :name %>
-      <%= t.hidden_field :learner_id, :value => current_learner.id %>
-      <p>例）中学3年2学期中間テスト</p>
-      <div class="tests">
-        <%= t.fields_for :subjects do |u| %>
-          <%= render "subject_fields", f: u %>
-        <% end %>
-        <div class="links mx-auto">
-          <%= link_to_add_association "科目を追加", t, :subjects %>
+    <div class="mt-3 form-group">
+      <%= form_with model: [@learner, @test], local: true do |t| %>
+        <%= t.label "テスト名" %>
+        <%= t.text_field :name %>
+        <%= t.hidden_field :learner_id, :value => current_learner.id %>
+        <p>例）中学3年2学期中間テスト</p>
+        <div class="tests">
+          <%= t.fields_for :subjects do |u| %>
+            <%= render "subject_fields", f: u %>
+          <% end %>
+          <div class="links mx-auto">
+            <%= link_to_add_association "科目を追加", t, :subjects %>
+          </div>
         </div>
-      </div>
-      <div class="mt-5">
-        <%= t.label "良かったところ" %>
-        <%= t.text_area :pros %>
-      </div>
-      <div>
-        <%= t.label "改善したいところ" %>
-        <%= t.text_area :cons %>
-      </div>
-      <div class="actions">
-        <%= t.submit "保存する" %>
-      </div>
-    <% end %>
+        <div class="mt-5">
+          <div>
+            <%= t.label "良かったところ" %>
+          </div>
+          <%= t.text_area :pros, class: "form-control" %>
+        </div>
+        <div class="mt-3">
+          <div>
+            <%= t.label "改善したいところ"%>
+          </div>
+          <%= t.text_area :cons, class: "form-control" %>
+        </div>
+        <div class="actions mt-3 mb-3">
+          <%= t.submit "保存する", class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
