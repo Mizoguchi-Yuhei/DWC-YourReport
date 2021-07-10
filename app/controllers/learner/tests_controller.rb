@@ -31,10 +31,11 @@ class Learner::TestsController < ApplicationController
   end
 
   def update
-    binding.pry
+    @test = Test.find(params[:test][:id])
     if @test.update(test_params)
       flash[:notice] = "更新しました！"
-      redirect_to :show
+      @tests = current_learner.tests.all
+      redirect_to learner_mypage_path
     else
       flash[:alert] = "保存に失敗しました"
       redirect_to request.referer

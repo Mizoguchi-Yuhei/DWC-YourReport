@@ -3,6 +3,7 @@
     <h3 class="mt-3">目標編集画面</h3>
     <div class="form-group">
       <%= form_with model: [@learner, @goal], local: true do |goal| %>
+        <%= goal.hidden_field :id, :value => @goal.id %>
         <div class="mt-3">
           <%= goal.text_area :body, class: "form-control" %>
         </div>
