@@ -1,2 +1,12 @@
-<h1>Observer::Learners#show</h1>
-<p>Find me in app/views/observer/learners/show.html.erb</p>
+<div class="container">
+	<div class="row mt-3">
+		<h4>
+			<%= @follow.name %>
+		</h4>
+		<div>
+			<% @tests.each do |test| %>
+				<%= link_to test.name, observer_tests_show_path(test) %>
+			<% end %>
+		</div>
+	</div>
+</div>
