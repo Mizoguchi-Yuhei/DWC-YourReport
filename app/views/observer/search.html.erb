@@ -23,9 +23,7 @@
 								<% if current_observer.already_follow_requested?(learner) %>
 									<%= link_to "フォローリクエストを取り消す", observer_learner_follow_requests_path(learner_id: learner.id), method: :delete %>
 								<% elsif current_observer.already_followed?(learner) %>
-									<p>
-										すでにフォロー済みです
-									</p>
+									すでにフォロー済みです
 								<% else %>
 									<%= link_to "フォローリクエストを送る", observer_learner_follow_requests_path(learner_id: learner.id), method: :post %>
 								<% end %>

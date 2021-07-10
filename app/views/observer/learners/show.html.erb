@@ -1,13 +1,13 @@
 <div class="container">
 	<div class="row mt-3">
 		<h4>
-			<%= @follow.name %>
+			テスト一覧
 		</h4>
 		<div>
 			<ul>
 				<% @tests.each do |test| %>
 					<li>
-						<%= link_to test.name, observer_tests_show_path(test) %>
+						<%= link_to test.name, observer_tests_show_path(test.id) %>
 					</li>
 				<% end %>
 			</ul>

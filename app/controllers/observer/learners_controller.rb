@@ -1,7 +1,7 @@
 class Observer::LearnersController < ApplicationController
   def show
     @observer = current_observer
-    @follow = Learner.find_by(params[:learner_id])
+    @follow = Learner.find(params[:id])
     @tests = @follow.tests
   end
 
