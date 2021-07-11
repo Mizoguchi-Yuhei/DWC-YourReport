@@ -19,7 +19,7 @@
 		    	<% @follows.each do |follow| %>
 		    		<ul>
 		    			<li>
-		    			<%= link_to follow.learner.name, observer_learner_path(follow.id) %>さん
+		    			<%= link_to follow.learner.name, observer_learner_path(follow.learner_id) %>さん
 		    			</li>
 		    		</ul>
 		    	<% end %>

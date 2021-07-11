@@ -5,7 +5,7 @@ class Learner < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :tests, dependent: :destroy
-  accepts_nested_attributes_for :tests, reject_if: :all_blank, allow_destroy: true
+  # accepts_nested_attributes_for :tests, reject_if: :all_blank, allow_destroy: true
 
   has_many :goals, dependent: :destroy
 
