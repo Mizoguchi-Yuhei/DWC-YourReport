@@ -21,20 +21,20 @@
 						<%= test.name %>
 					</h4>
 					<table class="table table-bordered table-hover align-middle mt-3">
+						<% test.subjects.each do |s| %>
 						<thead>
 							<tr>
-								<th>科目</th>
+								<th><%= s.name %></th>
 								<th>得点</th>
 								<th>満点</th>
 								<th>得点率</th>
 								<th>平均点</th>
 							</tr>
 						</thead>
-						<% test.subjects.each do |s| %>
 							<tbody>
 								<tr>
 									<td>
-										<%= s.name %>
+
 									</td>
 									<td>
 										<%= s.score %> 点
