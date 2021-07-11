@@ -2,13 +2,14 @@ class Observer::LearnersController < ApplicationController
   def show
     @observer = current_observer
     @follow = Learner.find(params[:id])
-    @tests = @follow.tests
+    @goals = @follow.goals.page(params[:goal_page]).per(3)
+    @tests = @follow.tests.page(params[:tests_page]).per(2)
   end
 
   private
 
   def learner_params
-    params.require(:learner).permit(:name)
+    params.require(:learner).permit(:id,:name)
   end
 
   def test_params

@@ -1,0 +1,29 @@
+<div>
+	<h6 class="mt-3">
+		フォロワー一覧
+	</h6>
+	<table>
+		<thead>
+			<tr>
+				<th>
+					名前
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @followers.each do |follower| %>
+			<tr>
+				<td>
+					<%= follower.observer.name %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= link_to "フォロー解除", learner_observer_follow_path(learner_id: current_learner.id, id: follower.id), method: :delete %>
+				</td>
+			</tr>
+		</tbody>
+		<% end %>
+	</table>
+</div>
