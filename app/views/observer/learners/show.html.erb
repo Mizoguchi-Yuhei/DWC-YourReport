@@ -2,13 +2,14 @@
 	<div class="row mt-3">
 		<div>
 			<h3>次回のテストの目標</h3>
-			<% @follow.goals.each do |goal| %>
+			<% @goals.each do |goal| %>
 				<ul>
 					<li>
 						<%= goal.body %>
 					</li>
 				</ul>
 			<% end %>
+			<%= paginate @goals, :param_name => "goal_page" %>
 		</div>
 		<h3>
 			テスト一覧
@@ -72,7 +73,7 @@
 			</ul>
 
 			<div class="d-flex justify-content-center">
-				<%= paginate @tests %>
+				<%= paginate @tests, :param_name => "tests_page" %>
 			</div>
 		</div>
 
