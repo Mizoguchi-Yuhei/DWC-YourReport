@@ -1,4 +1,4 @@
-class Learner::ObserverFollowsController < ApplicationController
+class ObserverFollowsController < ApplicationController
 	def index
 		@followers = current_learner.observer_follows.all
 	end
