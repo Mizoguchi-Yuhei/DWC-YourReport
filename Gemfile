@@ -79,9 +79,6 @@ gem 'gon'
 gem 'cocoon'
 
 gem 'devise'
-# Devise 日本語化
-gem 'devise-i18n'
-gem 'devise-i18n-views'
 
 # 日本語化
 gem 'rails-i18n', '~> 5.1'
