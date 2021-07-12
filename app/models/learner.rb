@@ -3,10 +3,11 @@ class Learner < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
   validates :name, presence: true
   validates :name, uniqueness: true
-  
+
+  validates :password, presence: true, length: { minimum: 6 }
   has_many :tests, dependent: :destroy
   # accepts_nested_attributes_for :tests, reject_if: :all_blank, allow_destroy: true
 

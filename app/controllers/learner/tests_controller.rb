@@ -10,7 +10,7 @@ class Learner::TestsController < ApplicationController
     if @test.save(test_params)
       redirect_to learner_mypage_path(current_learner)
     else
-      flash[:alert] = "失敗しました。"
+      flash[:alert] = "テスト名・科目・得点・満点は入力してください"
       redirect_to request.referer
     end
   end
@@ -36,7 +36,7 @@ class Learner::TestsController < ApplicationController
       @tests = current_learner.tests.all
       redirect_to learner_mypage_path
     else
-      flash[:alert] = "保存に失敗しました"
+      flash[:alert] = "テスト名・科目・得点・満点は入力してください"
       redirect_to request.referer
     end
   end
@@ -44,7 +44,7 @@ class Learner::TestsController < ApplicationController
   def destroy
     @test = Test.find_by(id: params[:id], learner_id: current_learner.id)
     if @test.destroy
-      flash[:notice] = "削除しました！"
+      flash[:notice] = "#{@test.name}を削除しました！"
       redirect_to learner_mypage_path
     else
       flash[:alert] = "削除に失敗しました"

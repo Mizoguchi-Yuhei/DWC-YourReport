@@ -11,7 +11,7 @@
         <p>例）中学3年2学期中間テスト</p>
         <div class="tests mt-5">
           <h5>点数入力</h5>
-	      	<p>注意）点数は半角で入力してください！</p>
+	      	<p style="color: red;">注意）点数は半角で入力してください！</p>
           <%= t.fields_for :subjects do |u| %>
             <%= render "subject_fields", f: u %>
           <% end %>
