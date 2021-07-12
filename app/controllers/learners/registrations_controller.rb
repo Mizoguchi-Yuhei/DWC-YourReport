@@ -61,7 +61,7 @@ class Learners::RegistrationsController < Devise::RegistrationsController
   # end
 
   def after_update_path_for(resource)
-    # 更新後マイページへの
+    # 更新後マイページへのパス
     learner_mypage_path(current_learner)
   end
 end
