@@ -97,6 +97,12 @@
 			});
 		</script>
 
+    <div>
+    	<%= link_to Refile.attachment_url(@test, :image), 'data-lightbox':"tests", 'data-title':"成績表の画像" do %>
+      	<%= attachment_image_tag @test, :image %>
+      <% end %>
+    </div>
+
 		<div class="mt-3">
 			<h5>良かったところ</h5>
 			<li>

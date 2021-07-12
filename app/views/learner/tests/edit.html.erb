@@ -10,7 +10,9 @@
 	      <%= t.label "テスト名" %>
 	      <%= t.text_field :name %>
 	      <p>例）中学3年2学期中間テスト</p>
-	      <div class="tests mt-3">
+	      <div class="tests mt-5">
+	      	<h6>点数入力</h6>
+	      	<p>注意）点数は半角で入力してください！</p>
 	        <%= t.fields_for :subjects do |u| %>
 	          <%= render "subject_fields", f: u %>
 	        <% end %>
@@ -18,6 +20,10 @@
 	          <%= link_to_add_association "科目を追加", t, :subjects %>
 	        </div>
 	      </div>
+	      <div class="mt-4">
+          <h6>成績表の画像(任意)</h6>
+          <%= t.attachment_field :image %>
+        </div>
 	      <div class="mt-5">
 	        <div>
 	        	<%= t.label "良かったところ" %>
