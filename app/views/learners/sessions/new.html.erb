@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row col-md-8 mx-auto">
+  <div class="row col-md-6 mx-auto">
     <h2>ログイン</h2>
 
     <%= form_with model: @learner, url: learner_session_path, local: true do |f| %>
@@ -21,7 +21,7 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit t('.sign_in') %>
+        <%= f.submit t('ログイン') %>
       </div>
     <% end %>
 

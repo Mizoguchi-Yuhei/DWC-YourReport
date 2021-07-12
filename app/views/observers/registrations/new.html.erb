@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row col-md-8 mx-auto">
+  <div class="row col-md-6 mx-auto">
     <h2>新規登録</h2>
     <%= form_with model: @observer, url: observer_registration_path, id: 'new_observer', class: 'new_observer', local: true do |f| %>
       <%= render "observers/shared/error_messages", resource: resource %>

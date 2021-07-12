@@ -1,17 +1,19 @@
 <div class="container">
-	<div>
-		<h4>学習者の方はこちら</h4>
-		<div>
-			<%= link_to "新規登録", new_learner_registration_path %>
-			<%= link_to "ログイン", new_learner_session_path %>
+	<div class="mx-auto d-flex justify-content-center mt-5">
+		<div class="mx-3">
+			<h4>学習者の方はこちら</h4>
+			<div class="text-center">
+				<%= link_to "新規登録", new_learner_registration_path, class: "btn btn-outline-success" %>
+				<%= link_to "ログイン", new_learner_session_path, class: "btn btn-outline-primary" %>
+			</div>
 		</div>
-	</div>
 
-	<div>
-		<h4>保護者の方はこちら</h4>
-		<div>
-			<%= link_to "新規登録", new_observer_registration_path %>
-			<%= link_to "ログイン", new_observer_session_path %>
+		<div class="mx-3">
+			<h4>保護者の方はこちら</h4>
+			<div class="text-center">
+				<%= link_to "新規登録", new_observer_registration_path, class: "btn btn-outline-success" %>
+				<%= link_to "ログイン", new_observer_session_path, class: "btn btn-outline-primary" %>
+			</div>
 		</div>
 	</div>
 </div>
