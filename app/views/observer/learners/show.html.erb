@@ -61,21 +61,21 @@
 
 					<% if test.image.present? %>
 						<a href="#" class="btn" role="button" data-bs-toggle="modal" data-bs-target="#lightboxModalFullscreen">
-						<%= attachment_image_tag test, :image, size: "170x120" %> </br >
-						成績表(クリックして拡大)
-			    </a>
+							<%= attachment_image_tag test, :image, size: "170x120" %> </br >
+							成績表(クリックして拡大)
+						</a>
 
-					<div class="modal fade" id="lightboxModalFullscreen" tabindex="-1" aria-labelledby="lightboxModalFullscreenLabel" aria-hidden="true">
-						<div class="modal-dialog modal-fullscreen" data-bs-dismiss="modal" aria-label="Close">
-							<div class="modal-content">
-								<div class="modal-body d-flex align-items-center justify-content-center">
-									<div class="img-fluid" id="LightboxImage" data-bs-dismiss="modal" aria-label="Close">
-										<%= attachment_image_tag test, :image, size: "960x593" %>
+						<div class="modal fade" id="lightboxModalFullscreen" tabindex="-1" aria-labelledby="lightboxModalFullscreenLabel" aria-hidden="true">
+							<div class="modal-dialog modal-fullscreen" data-bs-dismiss="modal" aria-label="Close">
+								<div class="modal-content">
+									<div class="modal-body d-flex align-items-center justify-content-center">
+										<div class="img-fluid" id="LightboxImage" data-bs-dismiss="modal" aria-label="Close">
+											<%= attachment_image_tag test, :image, size: "960x593" %>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
 					<% end %>
 
 					<% if test.pros.present? %>

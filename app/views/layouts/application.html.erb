@@ -11,25 +11,25 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
  </head>
 
-  <body>
+  <body style="padding-top:4rem;">
     <header>
       <% if learner_signed_in? %>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+          <div class="container container-fluid">
             <a class="navbar-brand" href="/"><span>ゆあれぽーと</span></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav">
-                <li class="text-end">
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
                   <%= link_to learner_mypage_path(current_learner) do %>
-                    <i class="fas fa-home nav-link text-light"> トップページ</i>
+                    <i class="fas fa-home nav-link text-dark"> ログインページ</i>
                   <% end %>
                 </li>
-                <li class="text-end">
+                <li class="nav-item">
                   <%= link_to destroy_learner_session_path, method: :delete do %>
-                    <i class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" > ログアウト</i>
+                    <i class="fas fa-sign-out-alt nav-link text-dark" rel="nofollow" > ログアウト</i>
                   <% end %>
                 </li>
               </ul>
@@ -37,22 +37,22 @@
           </div>
         </nav>
       <% elsif observer_signed_in? %>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+          <div class="container container-fluid">
             <a class="navbar-brand" href="/"><span>ゆあれぽーと</span></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav">
-                <li class="text-end">
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
                   <%= link_to observer_mypage_path(current_observer) do %>
-                    <i class="fas fa-home nav-link text-light"> トップページ</i>
+                    <i class="fas fa-home nav-link text-dark"> ログインページ</i>
                   <% end %>
                 </li>
-                <li class="text-end">
+                <li class="nav-item">
                   <%= link_to destroy_observer_session_path, method: :delete do %>
-                    <i class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" > ログアウト</i>
+                    <i class="fas fa-sign-out-alt nav-link text-dark" rel="nofollow" > ログアウト</i>
                   <% end %>
                 </li>
               </ul>
@@ -60,8 +60,8 @@
           </div>
         </nav>
       <% else %>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+          <div class="container container-fluid">
             <a class="navbar-brand" href="/"><span>ゆあれぽーと</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
