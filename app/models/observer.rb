@@ -7,6 +7,8 @@ class Observer < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
 
+  validates :password, presence: true, length: { minimum: 8 }
+
   has_many :follow_requests, dependent: :destroy
   has_many :observer_follows, dependent: :destroy
 

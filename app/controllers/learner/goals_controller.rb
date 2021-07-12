@@ -10,8 +10,8 @@ class Learner::GoalsController < ApplicationController
     if @goal.save
       redirect_to learner_mypage_path
     else
-      flash.now[:alert] = "失敗しました。"
-      render :new
+      flash[:alert] = "目標を入力してください。"
+      redirect_to request.referer
     end
   end
 
@@ -27,7 +27,7 @@ class Learner::GoalsController < ApplicationController
       @goals =current_learner.goals.all
       redirect_to learner_mypage_path
     else
-      flash[:alert] = "入力してください。"
+      flash[:alert] = "目標を入力してください。"
       redirect_to request.referer
     end
   end
@@ -36,7 +36,7 @@ class Learner::GoalsController < ApplicationController
     goal = Goal.find(params[:id])
     if goal.destroy
       redirect_to learner_mypage_path
-      flash[:notice] = "削除しました"
+      flash[:notice] = "削除しました！"
     else
       redirect_to request.referer
     end

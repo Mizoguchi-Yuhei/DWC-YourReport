@@ -69,6 +69,8 @@
     </header>
 
     <main>
+      <h5 class="container notice"><%= flash[:notice] %></h5>
+      <h5 class="container alert"><%= flash[:alert] %></h5>
       <%= yield %>
     </main>
 

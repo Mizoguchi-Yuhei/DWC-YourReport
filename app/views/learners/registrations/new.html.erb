@@ -5,30 +5,30 @@
     <%= form_with model: @learner, url: learner_registration_path, id: 'new_learner', class: 'new_learner', local: true do |f| %>
       <%= render "learners/shared/error_messages", resource: resource %>
 
-      <div class="field">
-        <%= f.label :name %><br />
+      <div class="field mt-3">
+        <%= f.label :name, "ニックネーム" %><br />
         <%= f.text_field :name, autofocus: true %>
       </div>
 
-      <div class="field">
-        <%= f.label :email %><br />
+      <div class="field mt-3">
+        <%= f.label :email, "メールアドレス" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
 
-      <div class="field">
-        <%= f.label :password %>
+      <div class="field mt-3">
+        <%= f.label :password, "パスワード" %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <span>(<%= @minimum_password_length %>文字以上)</span>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
+      <div class="field mt-3">
+        <%= f.label :password_confirmation,  "パスワード(確認用)" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
 
-      <div class="actions">
+      <div class="actions mt-3 mb-3">
         <%= f.submit "新規登録", class: "btn btn-success" %>
       </div>
     <% end %>
