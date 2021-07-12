@@ -4,6 +4,9 @@ class Observer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :name, presence: true
+  validates :name, uniqueness: true
+
   has_many :follow_requests, dependent: :destroy
   has_many :observer_follows, dependent: :destroy
 
