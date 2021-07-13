@@ -85,3 +85,8 @@ gem 'rails-i18n', '~> 5.1'
 
 # ページネーション
 gem 'kaminari'
+
+# リファクタリング
+gem 'rubocop', require:false
+gem 'rubocop-rails', require:false
+gem 'rubocop-performance', require:false
