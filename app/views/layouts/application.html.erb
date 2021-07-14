@@ -4,12 +4,80 @@
     <title>YourReport</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 
+    <%= include_gon %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-    <%= yield %>
+    <!--ローディング画面-->
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js.scss" />
+ </head>
+
+  <body style="padding-top:4rem;">
+    <div class="wrap">
+      <header>
+        <% if learner_signed_in? %>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container container-fluid">
+              <a class="navbar-brand" href="/"><span>ゆあれぽーと</span></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav1">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <%= link_to learner_mypage_path(current_learner) do %>
+                      <i class="fas fa-house-user nav-link text-dark"> マイページ</i>
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to destroy_learner_session_path, method: :delete do %>
+                      <i class="fas fa-sign-out-alt nav-link text-dark" rel="nofollow" > ログアウト</i>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <% elsif observer_signed_in? %>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container container-fluid">
+              <a class="navbar-brand" href="/"><span>ゆあれぽーと</span></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav2" aria-controls="navbarNav2" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav2">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <%= link_to observer_mypage_path(current_observer) do %>
+                      <i class="fas fa-house-user nav-link text-dark"> マイページ</i>
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to destroy_observer_session_path, method: :delete do %>
+                      <i class="fas fa-sign-out-alt nav-link text-dark" rel="nofollow" > ログアウト</i>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <% else %>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container container-fluid">
+              <a class="navbar-brand" href="/"><span>ゆあれぽーと</span></a>
+            </div>
+          </nav>
+        <% end %>
+      </header>
+
+      <main>
+        <h5 class="container alert-success"><%= notice %></h5>
+        <h5 class="container alert-danger"><%= alert %></h5>
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>

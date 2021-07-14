@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="col-md-10 mx-auto mt-3">
+    <h3 class="mt-3">次の定期テストの目標</h3>
+    <div class="form-group">
+      <%= form_with model: [@learner, @goal] do |goal| %>
+        <div class="mt-3">
+          <%= goal.text_area :body, class: "form-control" %>
+        </div>
+        <div class="mt-3">
+          <%= goal.submit "登録", class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="mt-3 mb-3 d-flex justify-content-end">
+			<%= link_to "トップページへ", learner_mypage_path(@learner), class: "fa fa-reply-all", 'data-turbolinks': false %>
+		</div>
+  </div>
+</div>
