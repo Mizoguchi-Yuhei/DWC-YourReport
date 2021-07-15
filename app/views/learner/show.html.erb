@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row mt-3 mx-auto offset-1 justify-content-center">
+  <div class="row mt-3 mb-3 mx-auto justify-content-center">
     <% if learner_signed_in? %>
       <% if @learner.name.present? %>
         <h4>こんにちは、<%= @learner.name %>さん！</h4>
@@ -10,7 +10,7 @@
     <div class="mt-1">
       <%= link_to "登録情報編集", edit_learner_registration_path(current_learner), class: "btn btn-outline-primary" %>
     </div>
-    <div class="col-md-3 col-lg-3">
+    <div class="col-md-4 col-lg-4">
       <div>
         <% if @followers.present? %>
           <%= render partial: "learner/observer_follows/index" %>
@@ -23,6 +23,12 @@
       <% if @requests.present? %>
         <%= render partial: "learner/follow_requests/index" %>
       <% end %>
+
+      <div class="mt-3 h-50">
+  			<%= month_calendar do |date| %>
+  			  <%= date.day %>
+  			<% end %>
+  		</div>
     </div>
 
     <div class="mt-3 col-md-4 col-lg-4">
@@ -34,8 +40,8 @@
               <li class="my-auto fs-5">
                 <%= goal.body %>
                 <div class="d-inline-block">
-                  <%= link_to "編集", edit_learner_goal_path(goal), class: "btn btn-outline-success" %>
-                  <%= link_to "削除", learner_goal_path(goal), method: :delete,  data: { confirm: '消去しますか?' }, class: "btn btn-outline-danger" %>
+                  <%= link_to "編集", edit_learner_goal_path(goal), class: "btn-sm btn-outline-success" %>
+                  <%= link_to "削除", learner_goal_path(goal), method: :delete,  data: { confirm: '消去しますか?' }, class: "btn-sm btn-outline-danger" %>
                 </div>
               </li>
             </ul>
