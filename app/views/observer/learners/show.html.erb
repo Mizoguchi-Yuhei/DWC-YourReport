@@ -15,7 +15,9 @@
 						</li>
 					</ul>
 				<% end %>
-				<%= paginate @goals, :param_name => "goal_page" %>
+				<div class="d-flex justify-content-center">
+					<%= paginate @goals, :param_name => "goal_page" %>
+				</div>
 			<% else %>
 				<p>　まだ目標は書かれていません。</p>
 			<% end %>
