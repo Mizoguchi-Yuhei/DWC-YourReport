@@ -20,7 +20,7 @@
 			</tr>
 			<tr>
 				<td>
-					<%= link_to "フォロー解除", learner_observer_follow_path(learner_id: current_learner.id, id: follower.id), method: :delete %>
+					<%= link_to "フォロー解除", learner_observer_follow_path(learner_id: current_learner.id, id: follower.id), method: :delete, class: "btn-sm btn-outline-danger" %>
 				</td>
 			</tr>
 		</tbody>
