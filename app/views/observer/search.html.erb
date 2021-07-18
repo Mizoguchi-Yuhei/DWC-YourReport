@@ -36,8 +36,23 @@
 					</tbody>
 				</table>
 			<% else %>
-			<h6 class="mt-3">ここに検索結果が表示されます</h6>
+				<h6 class="mt-3 mb-4">ここに検索結果が表示されます</h6>
+				<% @learners.each do |learner| %>
+					<% if current_observer.already_follow_requested?(learner) %>
+						<h6>フォローリクエスト(承認待ち)</h6>
+						<div>
+							<tr>
+								<td>
+									<%= learner.name %>
+								</td>
+								<td>
+									<%= link_to "フォローリクエストを取り消す", observer_learner_follow_requests_path(learner_id: learner.id), method: :delete, class: "btn btn-outline-danger ms-2" %>
+								</td>
+						</div>
+					<% end %>
+				<% end %>
 			<% end %>
 		</div>
+
 	</div>
 </div>
