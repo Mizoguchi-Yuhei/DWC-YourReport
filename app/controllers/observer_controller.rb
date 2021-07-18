@@ -8,5 +8,6 @@ class ObserverController < ApplicationController
     keyword = params[:keyword]
     @learners = Learner.search(keyword)
     @observer = current_observer
+    @check = params[:keyword]
   end
 end
