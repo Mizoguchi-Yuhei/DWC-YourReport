@@ -15,13 +15,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js.scss" />
  </head>
 
-  <body style="padding-top:4rem;">
+  <body style="padding-top:5rem;">
     <div class="wrap">
       <header>
         <% if learner_signed_in? %>
           <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container container-fluid">
-              <a class="navbar-brand" href="/"><span>ゆあれぽーと</span></a>
+              <%= link_to image_tag('pf-logo.png', style: "height: 50px;", class: "navbar-brand img-fluid"), root_path %>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -44,7 +44,7 @@
         <% elsif observer_signed_in? %>
           <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container container-fluid">
-              <a class="navbar-brand" href="/"><span>ゆあれぽーと</span></a>
+              <%= link_to image_tag('pf-logo.png', style: "height: 50px;", class: "navbar-brand img-fluid"), root_path %>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav2" aria-controls="navbarNav2" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -67,13 +67,13 @@
         <% else %>
           <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container container-fluid">
-              <a class="navbar-brand" href="/"><span>ゆあれぽーと</span></a>
+              <%= link_to image_tag('pf-logo.png', style: "height: 50px;", class: "navbar-brand img-fluid"), root_path %>
             </div>
           </nav>
         <% end %>
       </header>
 
-      <main class="pb-4">
+      <main class="pb-5">
         <h5 class="container alert-success"><%= notice %></h5>
         <h5 class="container alert-danger"><%= alert %></h5>
         <%= yield %>
