@@ -15,6 +15,7 @@
 						</li>
 					</ul>
 				<% end %>
+				<!--ページネーション-->
 				<div class="d-flex justify-content-center">
 					<%= paginate @goals, :param_name => "goal_page" %>
 				</div>
@@ -23,44 +24,47 @@
 			<% end %>
 		</div>
 
-		<h4>テスト一覧</h4>
+		<h4>定期テスト一覧</h4>
 		<div class"mt-3">
 			<ul class="mt-3 mb-3">
 				<% @tests.each do |test| %>
 					<h4 class="mt-3">
 						◯<%= test.name %>
 					</h4>
-					<table class="table table-bordered table-hover align-middle mt-3">
-						<% test.subjects.each do |s| %>
-						<thead>
-							<tr>
-								<th><%= s.name %></th>
-								<th>得点</th>
-								<th>満点</th>
-								<th>得点率</th>
-								<th>平均点</th>
-							</tr>
-						</thead>
-							<tbody>
+					<div style="height: 300px; overflow: auto;">
+						<table class="table table-bordered table-hover align-middle mt-3">
+							<% test.subjects.each do |s| %>
+							<thead>
 								<tr>
-									<td></td>
-									<td>
-										<%= s.score %> 点
-									</td>
-									<td>
-										<%= s.perfect %> 点
-									</td>
-									<td>
-										<%= (s.score.to_f / s.perfect.to_f) * 100 %> %
-									</td>
-									<td>
-										<%= s.average %> 点
-									</td>
+									<th><%= s.name %></th>
+									<th>得点</th>
+									<th>満点</th>
+									<th>得点率</th>
+									<th>平均点</th>
 								</tr>
-							</tbody>
-						<% end %>
-					</table>
+							</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td>
+											<%= s.score %> 点
+										</td>
+										<td>
+											<%= s.perfect %> 点
+										</td>
+										<td>
+											<%= (s.score.to_f / s.perfect.to_f) * 100 %> %
+										</td>
+										<td>
+											<%= s.average %> 点
+										</td>
+									</tr>
+								</tbody>
+							<% end %>
+						</table>
+					</div>
 
+					<!--成績表の投稿があれば-->
 					<% if test.image.present? %>
 						<a href="#" class="btn" role="button" data-bs-toggle="modal" data-bs-target="#lightboxModalFullscreen">
 							<%= attachment_image_tag test, :image, size: "170x120" %> </br >
@@ -103,8 +107,35 @@
 				<% end %>
 			</ul>
 
+			<!--ページネーション-->
 			<div class="d-flex justify-content-center">
 				<%= paginate @tests, :param_name => "tests_page" %>
+			</div>
+		</div>
+
+		<h4>日々のテスト一覧</h4>
+		<div class"mt-3">
+			<ul class="mt-3 mb-3">
+				<% @daily_tests.each do |daily_test| %>
+					<h4 class="mt-3">
+						◯<%= daily_test.name %>
+					</h4>
+					<div style="height: 400px; overflow: auto;">
+						<table class="table table-bordered table-hover align-middle mt-3">
+							<% daily_test.daily_scores.each do |s| %>
+							<tr>
+								<td><%= s.name %></td>
+								<td><%= s.score %> 点</td>
+							</tr>
+							<% end %>
+						</table>
+					</div>
+				<% end %>
+			</ul>
+
+			<!--ページネーション-->
+			<div class="d-flex justify-content-center">
+				<%= paginate @daily_tests, :param_name => "daily_tests_page" %>
 			</div>
 		</div>
 
