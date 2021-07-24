@@ -2,8 +2,8 @@ class Observer::LearnersController < ApplicationController
   def show
     @observer = current_observer
     @follow = Learner.find(params[:id])
-    @goals = @follow.goals.page(params[:goal_page]).per(3)
-    @tests = @follow.tests.page(params[:tests_page]).per(2)
+    @goals = @follow.goals.order("created_at DESC").page(params[:goal_page]).per(3)
+    @tests = @follow.tests.order("created_at DESC").page(params[:tests_page]).per(2)
   end
 
   private
