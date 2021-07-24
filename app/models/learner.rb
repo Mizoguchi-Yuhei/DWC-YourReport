@@ -11,6 +11,7 @@ class Learner < ApplicationRecord
   has_many :tests, dependent: :destroy
   # accepts_nested_attributes_for :tests, reject_if: :all_blank, allow_destroy: true
 
+  has_many :daily_tests, dependent: :destroy
   has_many :goals, dependent: :destroy
 
   has_many :follow_requests, dependent: :destroy

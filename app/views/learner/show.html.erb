@@ -62,27 +62,54 @@
     </div>
 
     <div class="mt-3 col-md-4 col-lg-4">
-      <h3>過去の定期テスト一覧</h3>
       <div>
-        <% if @tests.present? %>
-          <% @tests.each do |t| %>
-            <ul>
-              <li class="fs-5">
-                <%= link_to t.name, learner_test_path(t.id) %>
-			          <%= link_to "削除", learner_test_path(t.id), method: :delete, data: {confirm: "削除しますか？"}, class: "btn-sm btn-outline-danger" %>
-              </li>
-            </ul>
+        <h3>日々のテスト一覧</h3>
+        <div>
+          <% if @daily_tests.present? %>
+            <% @daily_tests.each do |t| %>
+              <ul>
+                <li class="fs-5">
+                  <%= link_to t.name, learner_daily_test_path(t.id) %>
+  			          <%= link_to "削除", learner_daily_test_path(t.id), method: :delete, data: {confirm: "削除しますか？"}, class: "btn-sm btn-outline-danger" %>
+                </li>
+              </ul>
+            <% end %>
+            <div>
+              <%= link_to "新しく登録する", new_learner_daily_test_path(@learner), class: "btn btn-outline-primary" %>
+            </div>
+          <% else %>
+            <h6>まだ投稿されていません。</h6>
+            <div>
+              <%= link_to "新しく登録する", new_learner_daily_test_path(@learner), class: "btn btn-outline-primary" %>
+            </div>
           <% end %>
-          <div>
-            <%= link_to "新しく登録する", new_learner_test_path(@learner), class: "btn btn-outline-primary" %>
-          </div>
-        <% else %>
-          <h6>まだ投稿されていません。</h6>
-          <div>
-            <%= link_to "新しく登録する", new_learner_test_path(@learner), class: "btn btn-outline-primary" %>
-          </div>
-        <% end %>
+        </div>
+      </div>
+
+      <div class="mt-3">
+        <h3>過去の定期テスト一覧</h3>
+        <div>
+          <% if @tests.present? %>
+            <% @tests.each do |t| %>
+              <ul>
+                <li class="fs-5">
+                  <%= link_to t.name, learner_test_path(t.id) %>
+  			          <%= link_to "削除", learner_test_path(t.id), method: :delete, data: {confirm: "削除しますか？"}, class: "btn-sm btn-outline-danger" %>
+                </li>
+              </ul>
+            <% end %>
+            <div>
+              <%= link_to "新しく登録する", new_learner_test_path(@learner), class: "btn btn-outline-primary" %>
+            </div>
+          <% else %>
+            <h6>まだ投稿されていません。</h6>
+            <div>
+              <%= link_to "新しく登録する", new_learner_test_path(@learner), class: "btn btn-outline-primary" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
+
   </div>
 </div>

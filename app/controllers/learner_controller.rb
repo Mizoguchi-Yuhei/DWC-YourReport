@@ -5,5 +5,6 @@ class LearnerController < ApplicationController
     @requests = current_learner.follow_requests.all
     @goals = current_learner.goals.all
     @tests = current_learner.tests.all
+    @daily_tests = current_learner.daily_tests.all
   end
 end

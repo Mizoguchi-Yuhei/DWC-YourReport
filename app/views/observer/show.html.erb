@@ -20,7 +20,7 @@
 			    <% if @follows.present? %>
 			    	<% @follows.each do |follow| %>
 			    		<ul>
-			    			<li>
+			    			<li class="fs-5">
 			    			<%= link_to follow.learner.name, observer_learner_path(follow.learner_id) %>さん
 			    			</li>
 			    		</ul>
