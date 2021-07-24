@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_12_032111) do
+ActiveRecord::Schema.define(version: 2021_07_24_115225) do
+
+  create_table "daily_scores", force: :cascade do |t|
+    t.integer "daily_test_id"
+    t.text "name"
+    t.integer "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "daily_tests", force: :cascade do |t|
+    t.integer "learner_id"
+    t.string "name"
+    t.integer "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "follow_requests", force: :cascade do |t|
     t.integer "learner_id"

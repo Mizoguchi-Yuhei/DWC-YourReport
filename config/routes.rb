@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :learner do
     resources :tests
     resources :goals
+    resources :daily_tests
   end
 # 学習者ログイン
   # devise_for :learners
