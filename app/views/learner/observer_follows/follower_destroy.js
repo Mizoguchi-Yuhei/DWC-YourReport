@@ -1,0 +1,1 @@
+$(".follower_destroy").html("<%= j(render 'learner/observer_follows/follower_destroy' %>");
