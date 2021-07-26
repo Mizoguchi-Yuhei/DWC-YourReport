@@ -1,0 +1,1 @@
+$(".accept_follow").html("<%= j(render 'learner/follow_requests/accept_follow' %>");

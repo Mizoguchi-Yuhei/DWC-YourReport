@@ -1,7 +1,7 @@
 <div>
-	<h6 class="mt-3">
+	<h5 class="mt-3">
 		フォロワー一覧
-	</h6>
+	</h5>
 	<table>
 		<thead>
 			<tr>
@@ -20,7 +20,9 @@
 			</tr>
 			<tr>
 				<td>
-					<%= link_to "フォロー解除", learner_observer_follow_path(learner_id: current_learner.id, id: follower.id), method: :delete, class: "btn-sm btn-outline-danger" %>
+					<div class="follower_destroy">
+						<%= render "learner/observer_follows/follower_destroy", follower: follower %>
+					</div>
 				</td>
 			</tr>
 		</tbody>

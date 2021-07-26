@@ -15,10 +15,14 @@
 					<td><%= request.observer.name %></td>
 				</tr>
 				<tr>
-					<td>
-						<%= link_to "フォロー承認", learner_allow_path(learner_id: current_learner.id, id: request.id), method: :post, class: "btn-sm btn-outline-success" %>
+					<td class="d-flex">
+						<div class="accept_follow">
+							<%= render "learner/follow_requests/accept_follow", request: request %>
+						</div>
 						 |
-						<%= link_to "フォロー拒否", learner_observer_follow_path(learner_id: current_learner.id, id: request.id), method: :delete, class: "btn-sm btn-outline-danger" %>
+						 <div class="reject_follow">
+							<%= render "learner/follow_requests/reject_follow", request: request %>
+						 </div>
 					</td>
 				</tr>
 			</tbody>

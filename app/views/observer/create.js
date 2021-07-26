@@ -1,0 +1,1 @@
+$(".follow_request").html("<%= escape_javascript(render 'observer/follow_request') %>");

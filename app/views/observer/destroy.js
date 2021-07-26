@@ -1,0 +1,1 @@
+$(".follow_request_desroy").html("<%= j(render 'observer/delete_follow_request' %>")

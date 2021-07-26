@@ -24,11 +24,15 @@
 								</td>
 								<td>
 									<% if current_observer.already_follow_requested?(learner) %>
-										<%= link_to "フォローリクエストを取り消す", observer_learner_follow_requests_path(learner_id: learner.id), method: :delete, class: "btn btn-outline-danger ms-2" %>
+										<div class="follow_request_desroy">
+											<%= render "delete_follow_request", learner: learner %>
+										</div>
 									<% elsif current_observer.already_followed?(learner) %>
 										　すでにフォロー済みです
 									<% else %>
-										<%= link_to "フォローリクエストを送る", observer_learner_follow_requests_path(learner_id: learner.id), method: :post, class: "btn btn-outline-primary ms-2" %>
+										<div class="follow_request">
+											<%= render "follow_request", learner: learner %>
+										</div>
 									<% end %>
 								</td>
 							</tr>
@@ -46,7 +50,9 @@
 									<%= learner.name %>
 								</td>
 								<td>
-									<%= link_to "フォローリクエストを取り消す", observer_learner_follow_requests_path(learner_id: learner.id), method: :delete, class: "btn btn-outline-danger ms-2" %>
+									<div class="follow_request_desroy">
+										<%= render "delete_follow_request", learner: learner %>
+									</div>
 								</td>
 						</div>
 					<% end %>
