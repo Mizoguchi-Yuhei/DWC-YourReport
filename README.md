@@ -20,9 +20,9 @@
 保護者が学生の成績を確認する際
 
 ## 設計書
-- テーブル定義書(作成中)
+- テーブル定義書
 https://drive.google.com/file/d/1fZjZlynQ2VRZYCaUKfI7AzqpUlmg3xQy/view?usp=sharing
-- ER図(作成中)
+- ER図
 https://drive.google.com/file/d/10syF37kgh_5PsJrwmx3mDhgcKrRPM6uq/view?usp=sharing
 
 ## チャレンジ要素一覧
@@ -36,4 +36,4 @@ https://docs.google.com/spreadsheets/d/1FN6pWYjC6BpP_eucCVu3_TsY7K73PeXc7w5BWk4X
 - IDE：Cloud9
 
 ## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- ロゴの作成 Free Online Logo Maker. designevo.com/jp/
