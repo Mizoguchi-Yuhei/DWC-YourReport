@@ -21,7 +21,6 @@ class Learner::GoalsController < ApplicationController
   end
 
   def update
-    # @goal = Goal.find_by(params[:id], learner_id: current_learner.id)
     @goal = Goal.find(params[:goal][:id])
     if @goal.update(goal_params)
       @goals =current_learner.goals.all
