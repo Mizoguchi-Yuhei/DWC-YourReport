@@ -4,6 +4,7 @@ class ObserverController < ApplicationController
     @follows = current_observer.observer_follows.all
   end
 
+  # 検索機能
   def search
     keyword = params[:keyword]
     @learners = Learner.search(keyword)

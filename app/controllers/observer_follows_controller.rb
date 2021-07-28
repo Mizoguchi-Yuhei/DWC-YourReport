@@ -3,6 +3,7 @@ class ObserverFollowsController < ApplicationController
 		@followers = current_learner.observer_follows.all
 	end
 
+	# フォロー解除
 	def destroy
 		follow = ObserverFollow.find(params[:id])
 		follow.destroy
