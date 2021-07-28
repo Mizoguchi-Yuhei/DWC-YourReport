@@ -37,3 +37,4 @@ https://docs.google.com/spreadsheets/d/1FN6pWYjC6BpP_eucCVu3_TsY7K73PeXc7w5BWk4X
 
 ## 使用素材
 - ロゴの作成 Free Online Logo Maker. designevo.com/jp/
+- 背景画像 https://www.beiz.jp
