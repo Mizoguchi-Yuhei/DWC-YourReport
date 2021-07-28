@@ -3,6 +3,7 @@ class Learner::FollowRequestsController < ApplicationController
     @requests = current_learner.follow_requests.all
   end
 
+  # フォローリクエスト許可
   def allow
     request = FollowRequest.find(params[:id])
     observer = Observer.find_by(id: request.observer_id)
@@ -12,6 +13,7 @@ class Learner::FollowRequestsController < ApplicationController
     redirect_to learner_mypage_path(current_learner)
   end
 
+  # フォローリクエスト拒否
   def destroy
     request = FollowRequest.find(parsms[:id])
     request.destroy

@@ -18,6 +18,7 @@ class Learner::TestsController < ApplicationController
   def show
     @test = Test.find_by(id: params[:id], learner_id: current_learner.id)
     @subjects = Subject.where(test_id: params[:id])
+    # jsにデータを渡すため
     gon.name_list = @subjects.pluck(:name)
     gon.score_list = @subjects.pluck(:score)
     gon.average_list = @subjects.pluck(:average)
