@@ -2,6 +2,7 @@ class ObserverController < ApplicationController
   def show
     @observer = current_observer
     @follows = current_observer.observer_follows.all
+    @observer_events = current_observer.observer_events.all
   end
 
   # 検索機能

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_24_115225) do
+ActiveRecord::Schema.define(version: 2021_08_02_110350) do
 
   create_table "daily_scores", force: :cascade do |t|
     t.integer "daily_test_id"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 2021_07_24_115225) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "learner_events", force: :cascade do |t|
+    t.integer "learner_id"
+    t.string "title"
+    t.text "event"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "learners", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -54,6 +64,16 @@ ActiveRecord::Schema.define(version: 2021_07_24_115225) do
     t.index ["email"], name: "index_learners_on_email", unique: true
     t.index ["name"], name: "index_learners_on_name", unique: true
     t.index ["reset_password_token"], name: "index_learners_on_reset_password_token", unique: true
+  end
+
+  create_table "observer_events", force: :cascade do |t|
+    t.integer "observer_id"
+    t.string "title"
+    t.text "event"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "observer_follows", force: :cascade do |t|

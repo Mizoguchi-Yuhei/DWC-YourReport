@@ -29,10 +29,17 @@
         <%= render partial: "learner/follow_requests/index" %>
       <% end %>
 
+      <!--カレンダー-->
       <div class="mt-3 h-50">
-  			<%= month_calendar do |date| %>
+        <%= month_calendar events: @learner_events do |date, events| %>
   			  <%= date.day %>
+  			  <% events.each do |event| %>
+            <div class="calendar-title">
+              <%= link_to event.title, edit_learner_event_path(event.id) %>
+            </div>
+          <% end %>
   			<% end %>
+  			<%= link_to '予定の追加', new_learner_event_path(current_learner), class: "mt-1 btn btn-success" %>
   		</div>
     </div>
 
