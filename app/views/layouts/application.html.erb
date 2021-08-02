@@ -21,7 +21,7 @@
         <% if learner_signed_in? %>
           <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container container-fluid">
-              <%= link_to image_tag('pf-logo.png', style: "height: 50px;", class: "navbar-brand img-fluid"), root_path %>
+              <%= link_to image_tag('pf-logo.png', style: "height: 50px;", class: "navbar-brand img-fluid"), learner_mypage_path %>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -44,7 +44,7 @@
         <% elsif observer_signed_in? %>
           <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container container-fluid">
-              <%= link_to image_tag('pf-logo.png', style: "height: 50px;", class: "navbar-brand img-fluid"), root_path %>
+              <%= link_to image_tag('pf-logo.png', style: "height: 50px;", class: "navbar-brand img-fluid"), observer_mypage_path %>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav2" aria-controls="navbarNav2" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
