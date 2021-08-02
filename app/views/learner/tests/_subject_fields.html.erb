@@ -1,18 +1,21 @@
 <div class="nested-fields mt-4 mx-auto">
   <div class="mt-3">
-    <%= f.label "科目" %>
+    <%= f.label "科目名" %>
     <%= f.text_field :name %>
   </div>
   <div class="mt-3">
-    <%= f.label "得点" %>
+    <%= f.label "得点　" %>
     <%= f.number_field :score %>
+    </br>
 
-    <%= f.label "満点" %>
+    <%= f.label "満点　" %>
     <%= f.number_field :perfect %>
+    </br>
 
     <%= f.label "平均点" %>
     <%= f.number_field :average %>
+    </br>
 
-    <%= link_to_remove_association "科目を削除", f, class: "btn btn-outline-danger" %>
+    <%= link_to_remove_association "科目を削除", f, class: "btn btn-outline-danger mt-2" %>
   </div>
 </div>

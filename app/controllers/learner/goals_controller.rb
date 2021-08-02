@@ -23,7 +23,7 @@ class Learner::GoalsController < ApplicationController
   def update
     @goal = Goal.find(params[:goal][:id])
     if @goal.update(goal_params)
-      @goals =current_learner.goals.all
+      @goals = current_learner.goals.all
       redirect_to learner_mypage_path
     else
       flash[:alert] = "目標を入力してください。"

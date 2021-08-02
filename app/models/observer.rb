@@ -12,6 +12,8 @@ class Observer < ApplicationRecord
   has_many :follow_requests, dependent: :destroy
   has_many :observer_follows, dependent: :destroy
 
+  has_many :observer_events, dependent: :destroy
+
   def already_follow_requested?(learner)
     self.follow_requests.exists?(learner_id: learner.id)
   end

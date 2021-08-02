@@ -262,3 +262,11 @@ main {
 .pace-running .wrap {
 	display: none;
 }
+
+.calendar-table {
+	table-layout: fixed;
+}
+
+.calendar-title {
+	overflow: hidden;
+}
