@@ -14,7 +14,7 @@ class LearnerEventsController < ApplicationController
     if @learner_new_event.save(learner_event_params)
       redirect_to learner_mypage_path(current_learner)
     else
-      flash[:alert] = "保存できませんでした。"
+      flash[:alert] = "保存できませんでした"
       redirect_to request.referer
     end
   end
@@ -29,12 +29,20 @@ class LearnerEventsController < ApplicationController
     if @learner_event.update(learner_event_params)
       redirect_to learner_mypage_path
     else
-      flash[:alert] = "更新できませんでした。"
+      flash[:alert] = "更新できませんでした"
       redirect_to request.referer
     end
   end
 
   def destroy
+    @learner_event = LearnerEvent.find(params[:id])
+    if @learner_event.destroy
+      flash[:notice] = "削除しました！"
+      redirect_to learner_mypage_path
+    else
+      flash[:alert] = "削除に失敗しました"
+      redirect_to request.referer
+    end
   end
 
   private

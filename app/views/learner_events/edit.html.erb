@@ -30,6 +30,7 @@
 
 			<div class="submit mt-3">
 		  	<%= f.submit "更新する", class: "btn btn-outline-success" %>
+		  	<%= link_to "削除する", learner_event_path(@learner_event), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-outline-danger" %>
 			</div>
 		<% end %>
 
