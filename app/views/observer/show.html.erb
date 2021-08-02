@@ -36,10 +36,17 @@
 			</div>
 		</div>
 
-		<div class="col-md-6 mt-2">
-			<%= month_calendar do |date| %>
+		<!--カレンダー-->
+    <div class="col-md-6 mt-3">
+      <%= month_calendar events: @observer_events do |date, events| %>
 			  <%= date.day %>
+			  <% events.each do |event| %>
+          <div class="calendar-title">
+            <%= link_to event.title, edit_observer_event_path(event.id) %>
+          </div>
+        <% end %>
 			<% end %>
+			<%= link_to '予定の追加', new_observer_event_path(current_observer), class: "mt-1 btn btn-success mt-2" %>
 		</div>
 	</div>
 </div>

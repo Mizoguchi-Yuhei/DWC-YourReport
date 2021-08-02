@@ -44,6 +44,7 @@ Rails.application.routes.draw do
 
   get "/observer/mypage" => "observer#show"
   get "/observer/search" => "observer#search"
+  resources :observer_events
   namespace :observer do
     get 'tests/show'
     get 'learners/show'
@@ -52,10 +53,4 @@ Rails.application.routes.draw do
     end
   end
 
-  # namespace :learner do
-  #   get 'follow_requests/index'
-  # end
-  # namespace :observer do
-  #   get 'observer/show'
-  # end
 end
