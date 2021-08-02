@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="row">
+	<div class="row mx-auto justify-content-center">
 		<div class="mt-3">
 	    <% if observer_signed_in? %>
 	      <% if @observer.name.present? %>
@@ -37,7 +37,7 @@
 		</div>
 
 		<!--カレンダー-->
-    <div class="col-md-6 mt-3">
+    <div class="col-md-6 mt-3 h-50">
       <%= month_calendar events: @observer_events do |date, events| %>
 			  <%= date.day %>
 			  <% events.each do |event| %>
