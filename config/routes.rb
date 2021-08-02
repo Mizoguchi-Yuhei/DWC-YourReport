@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   get "/learner/mypage" => "learner#show"
+  # get 'learner_events/new'
+  resources :learner_events
   namespace :learner do
     resources :tests
     resources :goals

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_24_115225) do
+ActiveRecord::Schema.define(version: 2021_08_02_091425) do
 
   create_table "daily_scores", force: :cascade do |t|
     t.integer "daily_test_id"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 2021_07_24_115225) do
   create_table "goals", force: :cascade do |t|
     t.integer "learner_id"
     t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "learner_events", force: :cascade do |t|
+    t.integer "learner_id"
+    t.string "title"
+    t.text "event"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

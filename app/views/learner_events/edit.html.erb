@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="mx-auto col-md-6 mt-3">
+		<h3>予定の編集</h3>
+		<%= form_with model: @learner_event, local: true do |f| %>
+
+			<%= f.hidden_field :learner_id, :value => current_learner.id %>
+			<div class="event-title mt-3">
+		    <%= f.label "タイトル" %>
+		    </br>
+		    <%= f.text_field :title, class: "form-control" %>
+		  </div>
+
+		  <div class="start_time mt-3">
+		    <%= f.label "開始時間" %>
+		    </br>
+		    <%= f.datetime_select :start_time %>
+		  </div>
+
+		  <div class="end_time mt-3">
+		    <%= f.label "終了時間" %>
+		    </br>
+		    <%= f.datetime_select :end_time %>
+		  </div>
+
+		  <div class="event mt-3">
+		    <%= f.label "内容" %>
+		    </br>
+		    <%= f.text_area :event, class: "form-control" %>
+		  </div>
+
+			<div class="submit mt-3">
+		  	<%= f.submit "更新する", class: "btn btn-outline-success" %>
+			</div>
+		<% end %>
+
+		<div class="mt-2 mb-2 d-flex justify-content-end">
+			<%= link_to "トップページへ", learner_mypage_path(@learner), class: "fa fa-reply-all", 'data-turbolinks': false %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  learner_id: 1
+  title: MyString
+  event: MyText
+  start_time: 2021-08-02 09:14:25
+  end_time: 2021-08-02 09:14:25
+
+two:
+  learner_id: 1
+  title: MyString
+  event: MyText
+  start_time: 2021-08-02 09:14:25
+  end_time: 2021-08-02 09:14:25

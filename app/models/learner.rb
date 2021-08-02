@@ -17,6 +17,8 @@ class Learner < ApplicationRecord
   has_many :follow_requests, dependent: :destroy
   has_many :observer_follows, dependent: :destroy
 
+  has_many :learner_events, dependent: :destroy
+
   def self.search(keyword)
     @learner = Learner.where("name LIKE ?", "%#{keyword}%")
   end
