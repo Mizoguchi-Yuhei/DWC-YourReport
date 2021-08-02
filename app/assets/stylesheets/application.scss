@@ -269,5 +269,10 @@ main {
 }
 
 .calendar-title {
+	// はみ出し表示しない
 	overflow: hidden;
+	// 折り返さない
+	white-space: nowrap;
+	// ３点リーダー
+	text-overflow: ellipsis;
 }
