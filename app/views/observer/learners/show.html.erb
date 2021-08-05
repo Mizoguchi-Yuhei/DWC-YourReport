@@ -67,7 +67,7 @@
 					<!--成績表の投稿があれば-->
 					<% if test.image.present? %>
 						<a href="#" class="btn" role="button" data-bs-toggle="modal" data-bs-target="#creationModal<%= test.id %>">
-							<%= attachment_image_tag test, :image, size: "170x120" %> </br >
+							<%= attachment_image_tag test, :image, size: "170x120" %> <br>
 							成績表(クリックして拡大)
 						</a>
 
