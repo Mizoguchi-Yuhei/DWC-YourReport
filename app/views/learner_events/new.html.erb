@@ -6,25 +6,25 @@
 			<%= f.hidden_field :learner_id, :value => current_learner.id %>
 			<div class="event-title mt-3">
 		    <%= f.label "タイトル" %>
-		    </br>
+		    <br>
 		    <%= f.text_field :title, class: "form-control" %>
 		  </div>
 
 		  <div class="start_time mt-3">
 		    <%= f.label "開始時間" %>
-		    </br>
+		    <br>
 		    <%= f.datetime_select :start_time %>
 		  </div>
 
 		  <div class="end_time mt-3">
 		    <%= f.label "終了時間" %>
-		    </br>
+		    <br>
 		    <%= f.datetime_select :end_time %>
 		  </div>
 
 		  <div class="event mt-3">
 		    <%= f.label "内容" %>
-		    </br>
+		    <br>
 		    <%= f.text_area :event, class: "form-control" %>
 		  </div>
 
